@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/photo/photo"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black",
+    "initialRenderingCache": "static"
+  },
+  "subpackages": [
+    {
+      "root": "Kivicube",
+      "pages": [
+        "pages/exprience/exprience"
+      ],
+      "plugins": {
+        "kivicube": {
+          "version": "1.5.13",
+          "provider": "wx3bbab3920eabccb2"
+        }
+      }
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "wifi",
+      "packages": [
+        "Kivicube"
+      ]
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

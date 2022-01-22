@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "usingComponents": {
+    "kivicube-scene": "plugin://kivicube/kivicube-scene",
+    "back-button": "/components/back-button/back-button"
+  }
+}

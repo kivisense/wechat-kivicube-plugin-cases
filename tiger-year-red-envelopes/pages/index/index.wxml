@@ -1,0 +1,11 @@
+<view>
+  <view class="bg-container">
+    <image src="/asset/home-bg-short.jpg" wx:if="{{isShortScreen}}" mode="widthFix"></image>
+    <image src="/asset/home-bg.jpg" wx:else mode="widthFix"></image>
+  </view>
+  <image src="/asset/2022.png" class="new-year"></image>
+  <view class="btn-warper" bindtap="gotoExprience">
+    <image src="/asset/button.png" class="btn-bg"></image>
+    <text class="btn-content">开启虎年AR</text>
+  </view>
+</view>

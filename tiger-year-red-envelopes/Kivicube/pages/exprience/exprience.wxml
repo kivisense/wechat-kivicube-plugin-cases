@@ -1,0 +1,25 @@
+<view>
+    <back-button wx:if="{{hidePoster}}"></back-button>
+    <view wx:if="{{showCustomDownload}}" class="subpkg-download-warper">
+        <image src="/asset/tiger.png" class="subpkg-loading-tiger"></image>
+        <image src="/asset/fish.png" class="subpkg-loading-fish"></image>
+        <text class="subpkg-loading-text">加载中...</text>
+    </view>
+    <view wx:if="{{showKiviScene}}">
+        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}"
+            scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error"
+            bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="photo" hideLoading hideDownload
+            hideScan />
+    </view>
+    <view wx:if="{{showRedEnvelopes}}" class="subpkg-red-envelopes-container">
+        <view class="subpkg-red-envelopes-warper">
+            <image src="/asset/red-envelopes.png" class="subpkg-red-envelopes-bg"></image>
+            <button bindtap="showRedPackage" class="subpkg-red-envelopes-button" hover-class="none">
+                <image src="/asset/share-red-envelopes-button.png">
+                </image>
+                <text>领取红包封面</text>
+            </button>
+        </view>
+    </view>
+
+</view>

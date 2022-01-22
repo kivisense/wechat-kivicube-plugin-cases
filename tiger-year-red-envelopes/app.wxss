@@ -1,0 +1,151 @@
+/**app.wxss**/
+
+text {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  color: #feeca3;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  margin-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+button::after {
+  border: none;
+  background-color: transparent;
+}
+
+.subpkg-download-warper {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  text-align: center;
+  background: linear-gradient(8deg, #FF3737 0%, #EE6853 63%, #DD3C2D 100%, #DD3C2D 100%);
+  z-index: 5;
+}
+
+.subpkg-loading-tiger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 37.6vw;
+  height: 37.6vw;
+}
+
+.subpkg-loading-fish {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60.53vw;
+  height: 60.8vw;
+  animation: spin 4s linear 0s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+.subpkg-loading-text {
+  position: absolute;
+  top: 142.47vw;
+  transform: translateX(-50%);
+  width: 18.35vw;
+  height: 5.96vw;
+  font-size: 14px;
+  line-height: 4.53vw;
+  font-weight: 400;
+}
+
+@media screen and (min-aspect-ratio: 375/668) {
+  .subpkg-loading-text {
+    top: 117.33vw;
+  }
+}
+
+.subpkg-kivi-scene {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+}
+
+
+
+.subpkg-red-envelopes-container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, .5);
+  z-index: 6;
+}
+
+.subpkg-red-envelopes-warper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60.53vw;
+  height: 85.33vw;
+  animation: zoom 0.2s ease-in 0s 1;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.subpkg-red-envelopes-warper .subpkg-red-envelopes-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.subpkg-red-envelopes-button {
+  position: absolute;
+  bottom: 6.13vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46.67vw;
+  height: 12.27vw;
+}
+
+.subpkg-red-envelopes-button image {
+  width: 100%;
+  height: 100%;
+}
+
+.subpkg-red-envelopes-button text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4.53vw;
+  width: 100%;
+  line-height: 4.53vw;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 3.73vw;
+}
