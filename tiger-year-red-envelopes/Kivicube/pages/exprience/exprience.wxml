@@ -8,8 +8,8 @@
     <view wx:if="{{showKiviScene}}">
         <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}"
             scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error"
-            bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="photo" hideLoading hideDownload
-            hideScan />
+            bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="photo"
+            hideTakePhoto="{{hideTakePhoto}}" hideLoading hideDownload hideScan />
     </view>
     <view wx:if="{{showRedEnvelopes}}" class="subpkg-red-envelopes-container">
         <view class="subpkg-red-envelopes-warper">
@@ -22,4 +22,16 @@
         </view>
     </view>
 
+    <canvas type="2d" id="photoCanvas" class="subpkg-poster-canvas"></canvas>
+    <view hidden="{{hidePoster}}" class="subpkg-poster-warper">
+        <image src="{{posterUrl}}" class="subpkg-poster-img" show-menu-by-longpress></image>
+        <view bindtap="rePhoto" class="subpkg-rephoto" hover-class="none">
+            <image src="/asset/button.png"></image>
+            <text>重新拍照</text>
+        </view>
+        <view bindtap="savePhoto" class="subpkg-savephoto" hover-class="none">
+            <image src="/asset/button.png"></image>
+            <text>保存照片</text>
+        </view>
+    </view>
 </view>

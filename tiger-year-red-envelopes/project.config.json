@@ -31,7 +31,7 @@
             "outputPath": ""
         },
         "enableEngineNative": false,
-        "useIsolateContext": false,
+        "useIsolateContext": true,
         "userConfirmedBundleSwitch": false,
         "packNpmManually": false,
         "packNpmRelationList": [],
@@ -43,8 +43,8 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.21.3",
-    "appid": "",
-    "projectname": "tiger-year-red-envelopes",
+    "appid": "wx27a669a9cfd7928a",
+    "projectname": "tiger-year-red-envelopes--%E5%88%86%E4%BA%AB",
     "cloudfunctionTemplateRoot": "",
     "watchOptions": {
         "ignore": []
