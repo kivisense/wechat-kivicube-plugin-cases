@@ -8,11 +8,6 @@ App({
       }
     })
 
-    //全局注册监听内存警告事件，内存警告事件会导致当前页面reload，从而导致webgl渲染出错。在发生内存警告事件后，记录这个信息，在页面再次onShow时根据这个信息确定是否重建kivicube-sense组件
-    wx.onMemoryWarning(function () {
-      wx.setStorageSync('reloaded', true)
-    })
-
     const {
       statusBarHeight,
       platform

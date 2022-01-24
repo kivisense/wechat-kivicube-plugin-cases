@@ -98,19 +98,6 @@ Page({
         this.setData({
             isRedEnvelopesShowed: wx.getStorageSync('redEnvelopesShowed')
         })
-        //判断是否重新加载
-        let reloaded = wx.getStorageSync('reloaded')
-        if (reloaded) {
-            this.setData({
-                showKiviScene: false
-            })
-            setTimeout(() => {
-                this.setData({
-                    showKiviScene: true
-                })
-                wx.setStorageSync('reloaded', false)
-            }, 0);
-        }
         //页面常亮
         wx.setKeepScreenOn({
             keepScreenOn: true
@@ -250,7 +237,7 @@ Page({
                     unSavedUrl: res.tempFilePath,
                 })
             },
-            fail(e) {}
+            fail(e) { }
         })
     },
 
