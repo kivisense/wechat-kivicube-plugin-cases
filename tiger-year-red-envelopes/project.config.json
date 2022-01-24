@@ -43,8 +43,8 @@
     },
     "compileType": "miniprogram",
     "libVersion": "2.21.3",
-    "appid": "",
-    "projectname": "tiger-year-red-envelopes",
+    "appid": "wx359163cee1fa4fb9",
+    "projectname": "tiger-year-red-envelopes--github",
     "cloudfunctionTemplateRoot": "",
     "watchOptions": {
         "ignore": []

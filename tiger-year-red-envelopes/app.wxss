@@ -149,3 +149,101 @@ button::after {
   z-index: 100;
   font-size: 3.73vw;
 }
+
+
+.subpkg-poster-img {
+  position: absolute;
+  top: 27.73vw;
+  left: 6.27vw;
+  width: 87.47vw;
+  height: 164.53vw;
+  z-index: 10;
+}
+
+.subpkg-savephoto {
+  position: absolute;
+  right: 3.73vw;
+  top: 195.2vw;
+  width: 45.33vw;
+  height: 14.93vw;
+}
+
+.subpkg-savephoto image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.subpkg-savephoto text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.73vw;
+  line-height: 5.73vw;
+}
+
+.subpkg-rephoto {
+  position: absolute;
+  left: 4vw;
+  top: 195.2vw;
+  width: 45.07vw;
+  height: 14.93vw;
+}
+
+.subpkg-rephoto image {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.subpkg-rephoto text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3.73vw;
+  line-height: 5.73vw;
+}
+
+@media screen and (min-aspect-ratio: 375/668) {
+  .subpkg-poster-img {
+    top: 21.87vw;
+    left: 17.33vw;
+    width: 66.93vw;
+    height: 125.6vw;
+  }
+
+  .subpkg-savephoto {
+    bottom: 12.8vw;
+    left: 8.27vw;
+    width: 41.6vw;
+    height: 13.6vw;
+  }
+
+  .subpkg-rephoto {
+    bottom: 12.8vw;
+    right: 6.67vw;
+    width: 41.6vw;
+    height: 13.6vw;
+  }
+}
+
+.subpkg-poster-canvas {
+  position: absolute;
+  top: 20vw;
+  left: -1000vw;
+  width: 100vw;
+  height: 188.1vw;
+}
+
+.subpkg-poster-warper {
+  position: absolute;
+  backdrop-filter: blur(10px);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, .5);
+  z-index: 10000;
+}
