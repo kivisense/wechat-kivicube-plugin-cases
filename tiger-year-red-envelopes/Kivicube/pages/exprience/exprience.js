@@ -250,7 +250,7 @@ Page({
                     unSavedUrl: res.tempFilePath,
                 })
             },
-            fail(e) { }
+            fail(e) {}
         })
     },
 
