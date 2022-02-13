@@ -1,37 +1,32 @@
 <view>
     <back-button wx:if="{{hidePoster}}"></back-button>
-    <view wx:if="{{showCustomDownload}}" class="subpkg-download-warper">
+    <view wx:if="{{showCustomDownload}}" class="subpkg-loading-warper">
         <image src="/asset/tiger.png" class="subpkg-loading-tiger"></image>
         <image src="/asset/fish.png" class="subpkg-loading-fish"></image>
-        <text class="subpkg-loading-text">加载中...</text>
+        <text class="subpkg-loading-text gold-text">加载中...</text>
     </view>
     <view wx:if="{{showKiviScene}}">
-        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}"
-            scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error"
-            bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="photo"
-            hideTakePhoto="{{hideTakePhoto}}" hideLoading hideDownload hideScan />
+        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}" scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error" bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="genephotoPhoto" hideTakePhoto="{{hideTakePhoto}}" hideLoading hideDownload hideScan />
     </view>
     <view wx:if="{{showRedEnvelopes}}" class="subpkg-red-envelopes-container">
         <view class="subpkg-red-envelopes-warper">
             <image src="/asset/red-envelopes.png" class="subpkg-red-envelopes-bg"></image>
-            <button bindtap="showRedPackage" class="subpkg-red-envelopes-button" hover-class="none">
-                <image src="/asset/share-red-envelopes-button.png">
-                </image>
-                <text>领取红包封面</text>
-            </button>
+            <view bindtap="showRedPackage" class="subpkg-red-envelopes-button" hover-class="none">
+                <image src="/asset/share-red-envelopes-button.png"></image>
+                <text class="gold-text">领取红包封面</text>
+            </view>
         </view>
     </view>
-
     <canvas type="2d" id="photoCanvas" class="subpkg-poster-canvas"></canvas>
     <view hidden="{{hidePoster}}" class="subpkg-poster-warper">
         <image src="{{posterUrl}}" class="subpkg-poster-img" show-menu-by-longpress></image>
         <view bindtap="rePhoto" class="subpkg-rephoto" hover-class="none">
             <image src="/asset/button.png"></image>
-            <text>重新拍照</text>
+            <text class="gold-text">重新拍照</text>
         </view>
         <view bindtap="savePhoto" class="subpkg-savephoto" hover-class="none">
             <image src="/asset/button.png"></image>
-            <text>保存照片</text>
+            <text class="gold-text">保存照片</text>
         </view>
     </view>
 </view>

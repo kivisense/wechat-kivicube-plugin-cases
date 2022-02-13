@@ -36,7 +36,6 @@
   width: 100vw;
 }
 
-
 @media screen and (min-aspect-ratio: 9/20) {
   .bg-container image {
     top: 0px;
@@ -96,8 +95,6 @@
     font-size: 4.94vw;
   }
 }
-
-
 
 .btn-bg {
   width: 100%;
