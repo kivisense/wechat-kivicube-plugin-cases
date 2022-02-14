@@ -6,7 +6,7 @@
         <text class="subpkg-loading-text gold-text">加载中...</text>
     </view>
     <view wx:if="{{showKiviScene}}">
-        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}" scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error" bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="genephotoPhoto" hideTakePhoto="{{hideTakePhoto}}" hideLoading hideDownload hideScan />
+        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="front" flash="off" touchable="{{false}}" scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error" bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" bindphoto="genePhoto" hideTakePhoto="{{hideTakePhoto}}" hideLoading hideDownload hideScan />
     </view>
     <view wx:if="{{showRedEnvelopes}}" class="subpkg-red-envelopes-container">
         <view class="subpkg-red-envelopes-warper">

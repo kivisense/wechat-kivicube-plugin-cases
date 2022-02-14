@@ -10,7 +10,7 @@ Component({
       const { top, height } = wx.getMenuButtonBoundingClientRect();
       this.setData({
         // 胶囊按钮高度 一般是32 如果获取不到就使用32
-        menuButtonHeight: height ? height + "px" : "32px",
+        menuButtonHeight: height + "px",
         //返回按钮的位置
         capsuleTop: top + "px",
       });

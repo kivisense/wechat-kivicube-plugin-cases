@@ -20,7 +20,7 @@ Page({
   },
 
   async onLoad() {
-    //获取权限信息
+    //获取摄像头权限后，渲染kivicube-scene
     const { authSetting } = await wx.getSetting();
     if (!authSetting["scope.camera"]) {
       try {
@@ -63,19 +63,15 @@ Page({
   },
 
   onShow() {
-    //返回首页后再次进入ar页面必须再次获得本地存储的情况
-    this.setData({
-      isRedEnvelopesShowed: wx.getStorageSync("redEnvelopesShowed"),
-    });
-    //页面常亮
+    //在拍摄页面时保持页面常亮
     wx.setKeepScreenOn({
       keepScreenOn: true,
     });
   },
 
-  //若在红包封面还没有弹出时退出了页面，则清除定时器
+  //若在红包封面还没有弹出时退出了页面，则清除展示红包封面的定时器
   onUnload() {
-    clearTimeout(this.timer);
+    clearTimeout(this.showRedEnvelopesTimer);
   },
 
   //场景加载完成后才关闭loading页面
@@ -90,7 +86,7 @@ Page({
     const isRedEnvelopesShowed = wx.getStorageSync("redEnvelopesShowed");
     if (!isRedEnvelopesShowed) {
       //5s后展示领取红包封面的弹窗
-      this.timer = setTimeout(() => {
+      this.showRedEnvelopesTimer = setTimeout(() => {
         this.setData({
           showRedEnvelopes: true,
         });
@@ -100,7 +96,7 @@ Page({
   },
 
   //生成照片后保存的方法，如果需要自定义生成照片的滤镜，则需要自己定义一个canvas再手动合成
-  async genephotoPhoto({ detail: photoPath }) {
+  async genePhoto({ detail: photoPath }) {
     wx.showLoading({
       title: "拍照中",
     });
@@ -139,7 +135,7 @@ Page({
     canvas.width = canvasWidth * dpr;
     canvas.height = canvasHeight * dpr;
 
-    //canvas绘制中出现的数字均为设计图上的内容
+    //canvas绘制过程中出现的数字均为设计图上的内容
     //生成海报背景图片
     const bgImg = await this.loadImg(canvas, "/asset/poster-bg.png");
     ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
@@ -148,6 +144,7 @@ Page({
     let img = await this.loadImg(canvas, photoPath);
     //最终生成在海报上照片的宽高比
     let genePhotoRatio = 59.07 / 92.77;
+    //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
     let imgTotalHeight = picWidth / genePhotoRatio;
     let imgStartY = (picHeight - imgTotalHeight) / 2;
     ctx.drawImage(
@@ -238,6 +235,7 @@ Page({
     });
   },
 
+  //获取保存图片权限后，保存图片
   async savePhoto() {
     const { authSetting } = await wx.getSetting();
     if (!authSetting["scope.writePhotosAlbum"]) {
