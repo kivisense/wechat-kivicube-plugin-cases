@@ -135,15 +135,28 @@ Page({
     canvas.width = canvasWidth * dpr;
     canvas.height = canvasHeight * dpr;
 
-    this.viewportWidth = canvas.width;
+    const vwToPx = (vw) => (canvas.width / 100) * vw;
+
+    const loadImg = (canvas, imgPath) => {
+      return new Promise((resolve, reject) => {
+        let img = canvas.createImage();
+        img.src = imgPath;
+        img.onload = () => {
+          resolve(img);
+        };
+        img.onerror = (e) => {
+          reject(new Error("图片加载错误" + " " + e.message));
+        };
+      });
+    };
 
     //canvas绘制过程中出现的数字均为设计图上的内容
     //生成海报背景图片
-    const bgImg = await this.loadImg(canvas, "/asset/poster-bg.png");
+    const bgImg = await loadImg(canvas, "/asset/poster-bg.png");
     ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
 
     //在海报上生成kivicube-scene拍摄出的照片
-    let img = await this.loadImg(canvas, photoPath);
+    let img = await loadImg(canvas, photoPath);
     //最终生成在海报上照片的宽高比
     let genePhotoRatio = 59.07 / 92.77;
     //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
@@ -155,41 +168,41 @@ Page({
       imgStartY,
       picWidth,
       imgTotalHeight,
-      this.vw2Px(5.65),
-      this.vw2Px(16.77),
-      this.vw2Px(88.6),
-      this.vw2Px(139.14)
+      vwToPx(5.65),
+      vwToPx(16.77),
+      vwToPx(88.6),
+      vwToPx(139.14)
     );
 
     //生成二维码
-    let qrcode = await this.loadImg(canvas, "/asset/qrcode.png");
+    let qrcode = await loadImg(canvas, "/asset/qrcode.png");
     ctx.drawImage(
       qrcode,
-      this.vw2Px(68.9),
-      this.vw2Px(159.45),
-      this.vw2Px(21.04),
-      this.vw2Px(21.34)
+      vwToPx(68.9),
+      vwToPx(159.45),
+      vwToPx(21.04),
+      vwToPx(21.34)
     );
 
     //生成kivisense的logo
-    let logo = await this.loadImg(canvas, "/asset/logo.png");
+    let logo = await loadImg(canvas, "/asset/logo.png");
     ctx.drawImage(
       logo,
-      this.vw2Px(26.22),
-      this.vw2Px(7.32),
-      this.vw2Px(46.04),
-      this.vw2Px(4.57)
+      vwToPx(26.22),
+      vwToPx(7.32),
+      vwToPx(46.04),
+      vwToPx(4.57)
     );
 
     //生成文本
     ctx.fillStyle = "#feeca3";
-    ctx.font = `normal 700 ${this.vw2Px(6.1)}px PingFangSC-Semibold`;
-    ctx.fillText("AR虎娃贺新春", this.vw2Px(8.23), this.vw2Px(161.59 + 6.1));
-    ctx.font = `normal 400 ${this.vw2Px(4.57)}px PingFangSC`;
+    ctx.font = `normal 700 ${vwToPx(6.1)}px PingFangSC-Semibold`;
+    ctx.fillText("AR虎娃贺新春", vwToPx(8.23), vwToPx(161.59 + 6.1));
+    ctx.font = `normal 400 ${vwToPx(4.57)}px PingFangSC`;
     ctx.fillText(
       "即刻体验，领取红包封面",
-      this.vw2Px(8.23),
-      this.vw2Px(161.59 + 6.1 + 8.54)
+      vwToPx(8.23),
+      vwToPx(161.59 + 6.1 + 8.54)
     );
 
     //cnavas转换成能展示的图片
@@ -213,19 +226,6 @@ Page({
     wx.hideLoading();
   },
 
-  loadImg(canvas, imgPath) {
-    return new Promise((resolve, reject) => {
-      let img = canvas.createImage();
-      img.src = imgPath;
-      img.onload = () => {
-        resolve(img);
-      };
-      img.onerror = (e) => {
-        reject(new Error("图片加载错误" + " " + e.message));
-      };
-    });
-  },
-
   rePhoto() {
     this.setData({
       hidePoster: true,
@@ -236,12 +236,25 @@ Page({
   //获取保存图片权限后，保存图片
   async savePhoto() {
     const { authSetting } = await wx.getSetting();
+    //保存图片到本地
+    const savePhotoToAlbum = () => {
+      wx.saveImageToPhotosAlbum({
+        filePath: this.data.posterUrl,
+        success: () => {
+          wx.showToast({
+            icon: "none",
+            title: "照片已保存到相册",
+            duration: 1000,
+          });
+        },
+      });
+    };
     if (!authSetting["scope.writePhotosAlbum"]) {
       try {
         await wx.authorize({
           scope: "scope.writePhotosAlbum",
         });
-        this.savePhotoToAlbum();
+        savePhotoToAlbum();
       } catch (error) {
         wx.showModal({
           title: "相册权限被拒绝",
@@ -254,7 +267,7 @@ Page({
             if (res.confirm) {
               const { authSetting } = await wx.openSetting();
               if (authSetting["scope.writePhotosAlbum"]) {
-                this.savePhotoToAlbum();
+                savePhotoToAlbum();
               } else {
                 return;
               }
@@ -266,7 +279,7 @@ Page({
       }
     } else {
       // 有权限则直接存
-      this.savePhotoToAlbum();
+      savePhotoToAlbum();
     }
   },
 
@@ -326,23 +339,5 @@ Page({
         });
       },
     });
-  },
-
-  //保存图片到本地
-  savePhotoToAlbum() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.posterUrl,
-      success: () => {
-        wx.showToast({
-          icon: "none",
-          title: "照片已保存到相册",
-          duration: 1000,
-        });
-      },
-    });
-  },
-
-  vw2Px(vw) {
-    return (this.viewportWidth / 100) * vw;
   },
 });
