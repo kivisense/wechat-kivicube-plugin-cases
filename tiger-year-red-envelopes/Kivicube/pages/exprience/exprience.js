@@ -146,7 +146,7 @@ Page({
 
     //在海报上生成kivicube-scene拍摄出的照片
     let img = await this.loadImg(canvas, photoPath);
-    //最终生成在海报上宽高比
+    //最终生成在海报上照片的宽高比
     let genePhotoRatio = 59.07 / 92.77;
     let imgTotalHeight = picWidth / genePhotoRatio;
     let imgStartY = (picHeight - imgTotalHeight) / 2;

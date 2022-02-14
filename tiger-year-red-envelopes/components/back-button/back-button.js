@@ -1,9 +1,9 @@
 Component({
   data: {
     // // 胶囊按钮高度
-    menuButtonHeight: wx.getStorageSync("menuButtonHeight") + "px",
+    menuButtonHeight: "32px",
     // // 左边返回按钮距屏幕顶部的距离
-    capsuleTop: wx.getStorageSync("capsuleTop") + "px",
+    capsuleTop: "48px",
   },
   lifetimes: {
     attached() {
