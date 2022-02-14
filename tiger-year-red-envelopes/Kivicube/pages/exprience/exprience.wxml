@@ -1,6 +1,6 @@
 <view>
     <back-button wx:if="{{hidePoster}}"></back-button>
-    <view wx:if="{{showCustomDownload}}" class="subpkg-loading-warper">
+    <view wx:if="{{showLoading}}" class="subpkg-loading-warper">
         <image src="/asset/tiger.png" class="subpkg-loading-tiger"></image>
         <image src="/asset/fish.png" class="subpkg-loading-fish"></image>
         <text class="subpkg-loading-text gold-text">加载中...</text>
@@ -17,6 +17,7 @@
             </view>
         </view>
     </view>
+    <!-- 用于生成海报的canvas,定位到屏幕外 -->
     <canvas type="2d" id="photoCanvas" class="subpkg-poster-canvas"></canvas>
     <view hidden="{{hidePoster}}" class="subpkg-poster-warper">
         <image src="{{posterUrl}}" class="subpkg-poster-img" show-menu-by-longpress></image>
