@@ -95,8 +95,8 @@ Page({
     }
   },
 
-  //生成照片后保存的方法，如果需要自定义生成照片的滤镜，则需要自己定义一个canvas再手动合成
-  async genePhoto({ detail: photoPath }) {
+  //生成海报的方法
+  async generatePhoto({ detail: photoPath }) {
     wx.showLoading({
       title: "拍照中",
     });
@@ -135,6 +135,8 @@ Page({
     canvas.width = canvasWidth * dpr;
     canvas.height = canvasHeight * dpr;
 
+    this.viewportWidth = canvas.width;
+
     //canvas绘制过程中出现的数字均为设计图上的内容
     //生成海报背景图片
     const bgImg = await this.loadImg(canvas, "/asset/poster-bg.png");
@@ -153,45 +155,41 @@ Page({
       imgStartY,
       picWidth,
       imgTotalHeight,
-      (canvas.width / 100) * 5.65,
-      (canvas.width / 100) * 16.77,
-      (canvas.width / 100) * 88.6,
-      (canvas.width / 100) * 139.14
+      this.vw2Px(5.65),
+      this.vw2Px(16.77),
+      this.vw2Px(88.6),
+      this.vw2Px(139.14)
     );
 
     //生成二维码
     let qrcode = await this.loadImg(canvas, "/asset/qrcode.png");
     ctx.drawImage(
       qrcode,
-      (canvas.width / 100) * 68.9,
-      (canvas.width / 100) * 159.45,
-      (canvas.width / 100) * 21.04,
-      (canvas.width / 100) * 21.34
+      this.vw2Px(68.9),
+      this.vw2Px(159.45),
+      this.vw2Px(21.04),
+      this.vw2Px(21.34)
     );
 
     //生成kivisense的logo
     let logo = await this.loadImg(canvas, "/asset/logo.png");
     ctx.drawImage(
       logo,
-      (canvas.width / 100) * 26.22,
-      (canvas.width / 100) * 7.32,
-      (canvas.width / 100) * 46.04,
-      (canvas.width / 100) * 4.57
+      this.vw2Px(26.22),
+      this.vw2Px(7.32),
+      this.vw2Px(46.04),
+      this.vw2Px(4.57)
     );
 
     //生成文本
     ctx.fillStyle = "#feeca3";
-    ctx.font = `normal 700 ${(canvas.width / 100) * 6.1}px PingFangSC-Semibold`;
-    ctx.fillText(
-      "AR虎娃贺新春",
-      (canvas.width / 100) * 8.23,
-      (canvas.width / 100) * (161.59 + 6.1)
-    );
-    ctx.font = `normal 400 ${(canvas.width / 100) * 4.57}px PingFangSC`;
+    ctx.font = `normal 700 ${this.vw2Px(6.1)}px PingFangSC-Semibold`;
+    ctx.fillText("AR虎娃贺新春", this.vw2Px(8.23), this.vw2Px(161.59 + 6.1));
+    ctx.font = `normal 400 ${this.vw2Px(4.57)}px PingFangSC`;
     ctx.fillText(
       "即刻体验，领取红包封面",
-      (canvas.width / 100) * 8.23,
-      (canvas.width / 100) * (161.59 + 6.1 + 8.54)
+      this.vw2Px(8.23),
+      this.vw2Px(161.59 + 6.1 + 8.54)
     );
 
     //cnavas转换成能展示的图片
@@ -219,11 +217,11 @@ Page({
     return new Promise((resolve, reject) => {
       let img = canvas.createImage();
       img.src = imgPath;
-      img.onload = (e) => {
+      img.onload = () => {
         resolve(img);
       };
       img.onerror = (e) => {
-        reject(new Error(e.message + +"(图片路径错误)"));
+        reject(new Error("图片加载错误" + " " + e.message));
       };
     });
   },
@@ -342,5 +340,9 @@ Page({
         });
       },
     });
+  },
+
+  vw2Px(vw) {
+    return (this.viewportWidth / 100) * vw;
   },
 });

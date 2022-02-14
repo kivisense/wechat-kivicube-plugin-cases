@@ -34,42 +34,7 @@
 .bg-container image {
   position: absolute;
   width: 100vw;
-}
-
-@media screen and (min-aspect-ratio: 9/20) {
-  .bg-container image {
-    top: 0px;
-  }
-}
-
-@media screen and (min-aspect-ratio: 5/11) {
-  .bg-container image {
-    top: -2vw;
-  }
-}
-
-@media screen and (min-aspect-ratio: 9/19.5) {
-  .bg-container image {
-    top: -4vw;
-  }
-}
-
-@media screen and (min-aspect-ratio: 9/19) {
-  .bg-container image {
-    top: -6vw;
-  }
-}
-
-@media screen and (min-aspect-ratio: 9/18.5) {
-  .bg-container image {
-    top: -8vw;
-  }
-}
-
-@media screen and (min-aspect-ratio: 9/18) {
-  .bg-container image {
-    top: -10vw;
-  }
+  height: 100%;
 }
 
 @media screen and (min-aspect-ratio: 375/668) {
@@ -78,10 +43,6 @@
     left: 16.53vw;
     width: 66.93vw;
     height: 20vw;
-  }
-
-  .bg-container image {
-    top: 0vw;
   }
 
   .btn-warper {

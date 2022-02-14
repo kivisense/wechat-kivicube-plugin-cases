@@ -1,7 +1,7 @@
 <view>
   <view class="bg-container">
-    <image src="/asset/home-bg-short.jpg" wx:if="{{isShortScreen}}" mode="widthFix"></image>
-    <image src="/asset/home-bg.jpg" wx:else mode="widthFix"></image>
+    <image src="/asset/home-bg-short.jpg" wx:if="{{isShortScreen}}" mode="aspectFill"></image>
+    <image src="/asset/home-bg.jpg" wx:else mode="aspectFill"></image>
   </view>
   <image src="/asset/2022.png" class="new-year"></image>
   <navigator class="btn-warper" url="/Kivicube/pages/exprience/exprience" hover-class="none">

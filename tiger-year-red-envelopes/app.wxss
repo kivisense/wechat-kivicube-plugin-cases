@@ -37,8 +37,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60.53vw;
-  height: 60.8vw;
+  width: 60vw;
+  height: 60vw;
   animation: spin 4s linear 0s infinite;
 }
 
