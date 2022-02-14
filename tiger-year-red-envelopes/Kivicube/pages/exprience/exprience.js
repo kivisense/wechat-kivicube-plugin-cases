@@ -123,7 +123,7 @@ Page({
     const { width: picWidth, height: picHeight } = await wx.getImageInfo({
       src: photoPath,
     });
-    //因为后面生成图片的位置和宽高均采用了逻辑像素,所以需要用物理像素比转换为物理像素
+    //因为后面要设置canvas画布的实际大小，所以获取物理像素比
     let dpr = wx.getSystemInfoSync().pixelRatio;
     //canvas的宽度和高度，在生成海报时大量使用(逻辑像素)
     const canvasWidth = canvasInstance.width;

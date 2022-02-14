@@ -2,12 +2,6 @@
   "pages": [
     "pages/index/index"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
-  },
   "subpackages": [
     {
       "root": "Kivicube",
