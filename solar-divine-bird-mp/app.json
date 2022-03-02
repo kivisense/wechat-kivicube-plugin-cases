@@ -1,0 +1,23 @@
+{
+  "pages": ["pages/index/index", "pages/webview/webview"],
+  "subpackages": [
+    {
+      "root": "Kivicube",
+      "pages": ["pages/offline/offline", "pages/online/online"],
+      "plugins": {
+        "kivicube": {
+          "version": "1.5.13",
+          "provider": "wx3bbab3920eabccb2"
+        }
+      }
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "wifi",
+      "packages": ["Kivicube"]
+    }
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

@@ -1,0 +1,11 @@
+<view hidden="{{hidden}}" class="poster-warper">
+  <image src="{{posterUrl}}" class="subpkg-poster-img" show-menu-by-longpress></image>
+  <view bindtap="rePhoto" class="subpkg-rephoto" hover-class="none">
+    <image src="/asset/button.png"></image>
+    <text class="gold-text">重新拍照</text>
+  </view>
+  <view bindtap="savePhoto" class="subpkg-savephoto" hover-class="none">
+    <image src="/asset/button.png"></image>
+    <text class="gold-text">保存照片</text>
+  </view>
+</view>

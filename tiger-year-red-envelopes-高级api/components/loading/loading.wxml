@@ -1,0 +1,5 @@
+<view class="loading-warper">
+  <image src="/asset/tiger.png" class="loading-tiger"></image>
+  <image src="/asset/fish.png" class="loading-fish"></image>
+  <text class="gold-text">加载中...</text>
+</view>

@@ -1,0 +1,65 @@
+.gold-text {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", sans-serif;
+  color: #feeca3;
+}
+
+.loading-warper {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  text-align: center;
+  background: linear-gradient(
+    8deg,
+    #ff3737 0%,
+    #ee6853 63%,
+    #dd3c2d 100%,
+    #dd3c2d 100%
+  );
+  z-index: 5;
+}
+
+.loading-tiger {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 37.6vw;
+  height: 37.6vw;
+}
+
+.loading-fish {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60.53vw;
+  height: 60.8vw;
+  animation: spin 4s linear 0s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+.loading-warper text {
+  position: absolute;
+  top: 142.47vw;
+  transform: translateX(-50%);
+  width: 18.35vw;
+  height: 5.96vw;
+  font-size: 14px;
+  line-height: 4.53vw;
+  font-weight: 400;
+}
+
+@media screen and (min-aspect-ratio: 375/668) {
+  .loading-warper text {
+    top: 117.33vw;
+  }
+}

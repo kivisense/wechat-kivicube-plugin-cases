@@ -1,0 +1,30 @@
+<view class="container">
+  <copyright></copyright>
+  <image src='/asset/bg.jpg' mode="aspectFill" class="bg"></image>
+  <video class="bg-video" style="opacity:{{showVideo?'1':'0'}} ;" autoplay object-fit="cover" loop="true" enable-progress-gesture="{{false}}" show-play-btn="{{false}}" show-fullscreen-btn="{{false}}" controls="{{false}}" src="https://kivicube-resource.kivisense.com/projects/solar-divine-bird-mp/video/home-bg.mp4" bind:play="videoPlay"></video>
+  <view class="mask"></view>
+  <image src="/asset/back.png" style="{{'height:' + menuButtonHeight+';top:'+capsuleTop}}" class="hide-choose-btn" wx:if="{{showChooseBtn}}" bindtap="hideChooseBtn" mode="heightFix"></image>
+  <view class="title">AR实境动态壁画</view>
+  <view class="position">
+    <image src="/asset/location-icon.png" />
+    <text class="position-content">成都市武侯区得胜社区</text>
+  </view>
+  <view wx:if="{{!showChooseBtn}}" bindtap="showChooseBtn" class="btn exprience">
+    <image src="/asset/button.png" mode="widthFix" />
+    <view>即刻体验</view>
+  </view>
+  <view wx:else class="btn-warper">
+    <navigator url="/Kivicube/pages/online/online" class="btn online" hover-class="none">
+      <image src="/asset/button.png" mode="widthFix" />
+      <view>我在线上</view>
+    </navigator>
+    <navigator url="/Kivicube/pages/offline/offline" class="btn offline" hover-class="none">
+      <image src="/asset/button.png" mode="widthFix" />
+      <view>我在线下</view>
+    </navigator>
+  </view>
+  <view class="produce" wx:if="{{!showChooseBtn}}">
+    <navigator hover-class="none" url="/pages/webview/webview">免费制作同款AR</navigator>
+    <view class="underline"></view>
+  </view>
+</view>

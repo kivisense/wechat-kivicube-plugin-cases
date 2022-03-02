@@ -1,0 +1,28 @@
+<view>
+  <view bind:tap="onClickDetail" wx:if="{{!showDetail}}" class="detail-btn">
+    <view>作品</view>
+    <view>详情</view>
+  </view>
+  <view wx:if="{{showDetail}}" class="detail-warper">
+    <view class="close-btn" bind:tap="onClickClose">
+      <image src="./images/close.png" mode="widthFix" class="close-image" />
+    </view>
+    <image src="/asset/work.png" mode="widthFix" class="work" bind:tap="hideMoreDetail" />
+    <view class="introduction" animation="{{animationData}}">
+      <view class="title">太 阳</view>
+      <view class="breakline"></view>
+      <view class="introduction-detail">
+        <text wx:if="{{showMoreDetail}}">“太阳”的作者是一对白俄罗斯夫妇，Key Detail和他的妻子Yu-BABA。该项目是立邦漆“为爱上色”公益活动。这幅壁画究竟有何含义？
+
+          在Key Detail提供的作品介绍中提到，他将女孩设计为太阳的模样，女孩身着传统川剧服饰，鲜艳饱和的色彩，代表成都人民热情好客的性格特点。女孩身边围绕的凤凰，代表动物与人的和平相处。同时，他也想把凤凰在中国文化中吉祥的美好寓意传递给成都人民。
+
+          此外，凤凰在西方文化中被称为“Phoenix”，除了被翻译为凤凰之外，还有一个名字叫做长生鸟，这样就能把长寿的祝愿带给这里的居民。
+        </text>
+        <view wx:else>
+          “太阳”的作者是一对白俄罗斯夫妇，Key Detail和他的妻子Yu-BABA。该项目是立邦漆“为爱上色”公益活动。这幅壁画究竟有何含义？
+          <text class="more-detail" bind:tap="showMoreDetail">查看全文</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "name": "solar-divine-bird-mp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cdn": "kivi-cdn upload",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "kivi-cdn": "git+ssh://git@192.168.0.22:7999/tech/kivi-cdn.git#0e1613aab3a"
+  }
+}

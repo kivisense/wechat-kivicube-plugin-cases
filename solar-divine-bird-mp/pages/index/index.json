@@ -1,0 +1,7 @@
+{
+  "disableScroll": true,
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "copyright": "/components/copyright/copyright"
+  }
+}

@@ -1,0 +1,13 @@
+<loading wx:if="{{showLoading}}" progress="{{progress}}"></loading>
+<back-button></back-button>
+<poster tempUrl="{{tempUrl}}" wx:if="{{showPoster}}" bind:rephoto="rePhoto" ></poster>
+<warning wx:if="{{showWarning}}" bind:closeWarning="closeWarning"></warning>
+<scan-tips wx:if="{{!showWarning&&showScanTips}}"></scan-tips>
+<view wx:if="{{showInfo}}">
+    <copyright onPageLeft="{{false}}" ></copyright>
+    <work-detail ></work-detail>
+</view>
+<view wx:if="{{showAR}}">
+    <kivicube-scene class="subpkg-scene" hideTakePhoto hideLoading hideDownload hideScan scene-id="oWkf0UeyzOE6dEYvTaHA6tzJhLMj99V1" bind:ready="ready" bind:downloadAssetProgress="downloadProgress" bind:loadSceneEnd="loadEnd" bind:tracked="tracked" bind:lostTrack="lostTrack" bind:error="error" />
+    <image wx:if="{{!showScanTips&&showInfo}}" bindtap="takePhoto" class="subpkg-takephoto" src="/asset/takephoto.png"></image>
+</view>
