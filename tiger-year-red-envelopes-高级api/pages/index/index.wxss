@@ -1,0 +1,63 @@
+.new-year {
+  position: absolute;
+  top: 165.33vw;
+  left: 12.27vw;
+  width: 75.47vw;
+  height: 23.2vw;
+}
+
+.btn-warper {
+  position: absolute;
+  top: 193.6vw;
+  left: 19.2vw;
+  width: 62.13vw;
+  height: 20.27vw;
+}
+
+.btn-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5.6vw;
+  color: #feeca3;
+}
+
+.bg-container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  overflow: hidden;
+  background-size: 100% auto;
+}
+
+.bg-container image {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+}
+
+@media screen and (min-aspect-ratio: 375/668) {
+  .new-year {
+    top: 127.73vw;
+    left: 16.53vw;
+    width: 66.93vw;
+    height: 20vw;
+  }
+
+  .btn-warper {
+    top: 149.33vw;
+    left: 22.67vw;
+    width: 54.67vw;
+    height: 17.87vw;
+  }
+
+  .btn-content {
+    font-size: 4.94vw;
+  }
+}
+
+.btn-bg {
+  width: 100%;
+  height: 100%;
+}

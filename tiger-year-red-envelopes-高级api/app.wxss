@@ -1,0 +1,111 @@
+.gold-text {
+  color: #feeca3;
+}
+
+/* 写在分包里的css样式无法生效,所以样式写在了app.wxss,分包中使用的样式以subpkg开头 */
+/* 详情见https://developers.weixin.qq.com/community/develop/doc/0004a84f8149b842802c298a650800 */
+.subpkg-kivi-scene {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+}
+
+.subpkg-custom-photo {
+  position: absolute;
+  left: 50%;
+  bottom: 6.49vw;
+  transform: translateX(-50%);
+  width: 45.96vw;
+  height: 45.96vw;
+  z-index: 5;
+}
+
+.subpkg-switch-camera {
+  position: absolute;
+  right: 8.71vw;
+  bottom: 23.11vw;
+  transform: translateX(-50%);
+  width: 12.71vw;
+  height: 12.71vw;
+  z-index: 5;
+}
+
+.subpkg-poster-canvas {
+  position: absolute;
+  top: 20vw;
+  left: -1000vw;
+  width: 100vw;
+  height: 188.1vw;
+}
+
+.subpkg-red-envelopes-container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 6;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .subpkg-red-envelopes-container {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+  }
+}
+
+.subpkg-red-envelopes-warper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60.53vw;
+  height: 85.33vw;
+  animation: zoom 0.2s ease-in 0s 1;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.subpkg-red-envelopes-warper .subpkg-red-envelopes-bg {
+  width: 100%;
+  height: 100%;
+}
+
+.subpkg-red-envelopes-button {
+  position: absolute;
+  bottom: 6.13vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46.67vw;
+  height: 12.27vw;
+}
+
+.subpkg-red-envelopes-button image {
+  width: 100%;
+  height: 100%;
+}
+
+.subpkg-red-envelopes-button text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4.53vw;
+  line-height: 4.53vw;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  font-size: 3.73vw;
+}

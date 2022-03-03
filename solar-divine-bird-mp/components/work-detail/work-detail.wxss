@@ -1,0 +1,108 @@
+.detail-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30.13vw;
+  left: 6.67vw;
+  width: 10.13vw;
+  height: 10.13vw;
+  background: rgba(255, 238, 228, 0.41);
+  box-shadow: 0vw 0.53vw 1.87vw 0vw rgba(58, 40, 40, 0.25);
+  border-radius: 2.13vw;
+  backdrop-filter: blur(15px);
+  z-index: 2;
+  font-size: 2.93vw;
+  text-shadow: 0px 1px 2px rgba(58, 40, 40, 0.25);
+  line-height: 3.2vw;
+  box-sizing: border-box;
+  color: #ffffff;
+}
+
+.detail-warper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 36, 36, 0.78);
+  backdrop-filter: blur(50px);
+  z-index: 10;
+}
+
+.close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30.13vw;
+  right: 6.67vw;
+  width: 8.53vw;
+  height: 8.53vw;
+  background-color: rgba(255, 238, 228, 0.41);
+  border-radius: 50%;
+  line-height: 8.53vw;
+  z-index: 2;
+}
+
+.close-btn .close-image {
+  width: 4.27vw;
+}
+
+.detail-warper .work {
+  position: absolute;
+  width: 78.13vw;
+  top: 34.4vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  height: 54.67vw;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0vw 0.53vw 9.87vw 0vw #2e5064;
+  border-radius: 6.67vw 6.67vw 0vw 0vw;
+  backdrop-filter: blur(27px);
+}
+
+.title {
+  margin-top: 5.6vw;
+  height: 9.6vw;
+  font-size: 6.67vw;
+  font-weight: bold;
+  color: #313435;
+  line-height: 9.6vw;
+}
+
+.breakline {
+  margin-top: 3vw;
+  width: 80vw;
+  height: 1px;
+  background-color: #c0c0c0;
+}
+
+.introduction-detail {
+  margin-top: 4.8vw;
+  width: 80vw;
+  height: 25.33vw;
+  font-weight: normal;
+  color: #464b50;
+  line-height: 6vw;
+  font-size: 4vw;
+  color: #464b50;
+  text-align: left;
+}
+
+.more-detail {
+  width: 16vw;
+  height: 4.53vw;
+  font-size: 3.2vw;
+  font-weight: normal;
+  color: #912c07;
+  line-height: 4.53vw;
+}

@@ -1,0 +1,111 @@
+.loading-warper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(90, 136, 157, 0) 0%,
+    rgba(45, 73, 86, 0.54) 42%,
+    #e57850 100%
+  );
+  backdrop-filter: blur(27px);
+}
+
+.loading-bird {
+  position: absolute;
+  top: 64.8vw;
+  left: 17.33vw;
+  width: 60.27vw;
+  height: 56vw;
+}
+
+.loading-warper .progress {
+  margin-top: 3.2vw;
+  width: 17.87vw;
+  height: 4.53vw;
+  font-size: 3.2vw;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 4.53vw;
+  z-index: 10;
+}
+
+@media screen and (min-aspect-ratio: 375/668) {
+  .loading-warper text {
+    top: 117.33vw;
+  }
+}
+
+.loading-warper .notice {
+  display: flex;
+  align-items: center;
+  margin-top: 9.33vw;
+  width: 54vw;
+  height: 5.33vw;
+  font-size: 3.73vw;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 5.33vw;
+  z-index: 10;
+}
+
+.loading-warper .notice .sun-image {
+  width: 6.93vw;
+  height: 6.93vw;
+}
+
+.loading-warper .notice text {
+  margin-left: 1.87vw;
+}
+
+.loadingcircle-left {
+  border: 1vw solid #b7b7b7;
+  border-radius: 50%;
+  clip: rect(0, 27.5vw, 55vw, 0);
+}
+
+.loadingcircle-right {
+  border: 1vw solid #b7b7b7;
+  border-radius: 50%;
+  clip: rect(0, 55vw, 55vw, 27.5vw);
+}
+
+.loadingcircle-box {
+  position: relative;
+  margin-top: 62.67vw;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1vw rgb(255, 138, 70);
+}
+
+.loadingcircle-box view {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}

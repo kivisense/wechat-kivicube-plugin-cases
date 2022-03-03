@@ -1,0 +1,100 @@
+.scan-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background: rgba(36, 36, 36, 0.8);
+  text-align: center;
+  z-index: 4;
+}
+
+.scan-warper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 58.94vw;
+  height: 107.73vw;
+}
+
+.scan-warper image {
+  width: 9.87vw;
+  height: 10.93vw;
+}
+
+.scan-warper .work {
+  margin-top: 3.73vw;
+  width: 50.13vw;
+  height: 92.8vw;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.bottom-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: scaleX(-1) scaleY(-1);
+}
+
+.tips {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 4.8vw;
+  width: 65.07vw;
+  height: 13.87vw;
+  width: 37.33vw;
+  height: 5.33vw;
+  font-size: 3.73vw;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 5.33vw;
+}
+.tips-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  bottom: -22.93vw;
+  width: 100vw;
+  height: 22.93vw;
+  background: rgba(36, 36, 36, 0.8);
+  z-index: 6;
+}
+
+.tips-container image {
+  margin-left: 12.27vw;
+  width: 6.93vw;
+  height: 11.2vw;
+}
+
+.tips-container view {
+  margin-left: 6.93vw;
+  font-size: 3.73vw;
+  font-weight: normal;
+  color: #ffffff;
+  line-height: 5.33vw;
+}

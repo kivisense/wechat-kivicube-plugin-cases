@@ -96,6 +96,7 @@ Page({
   },
 
   //生成海报的方法
+  //未使用高级api无法自定义拍照按钮
   async generatePhoto({ detail: photoPath }) {
     wx.showLoading({
       title: "拍照中",
@@ -115,10 +116,6 @@ Page({
         });
     });
 
-    //kivicube-scene生成照片的宽和高信息，在生成海报时裁切照片时用到
-    const { width: picWidth, height: picHeight } = await wx.getImageInfo({
-      src: photoPath,
-    });
     //因为后面要设置canvas画布的实际大小，所以获取物理像素比
     let dpr = wx.getSystemInfoSync().pixelRatio;
     //canvas的宽度和高度，在生成海报时大量使用(逻辑像素)
@@ -144,55 +141,85 @@ Page({
         img.onload = () => {
           resolve(img);
         };
-        img.onerror = (e) => {
-          reject(new Error("图片加载错误" + " " + e.message));
+        img.onerror = () => {
+          //onerror函数没有参数
+          reject(new Error("图片加载错误"));
         };
+      });
+    };
+
+    const handleImageGeneratingError = () => {
+      wx.hideLoading();
+      wx.showToast({
+        icon: "none",
+        title: "照片生成失败，请稍后再试",
+        duration: 1000,
       });
     };
 
     //canvas绘制过程中出现的数字均为设计图上的内容
     //生成海报背景图片
-    const bgImg = await loadImg(canvas, "/asset/poster-bg.png");
-    ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+    try {
+      const bgImg = await loadImg(canvas, "/asset/poster-bg.png");
+      ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+    } catch (error) {
+      handleImageGeneratingError();
+    }
 
     //在海报上生成kivicube-scene拍摄出的照片
-    let img = await loadImg(canvas, photoPath);
-    //最终生成在海报上照片的宽高比
-    let genePhotoRatio = 59.07 / 92.77;
-    //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
-    let imgTotalHeight = picWidth / genePhotoRatio;
-    let imgStartY = (picHeight - imgTotalHeight) / 2;
-    ctx.drawImage(
-      img,
-      0,
-      imgStartY,
-      picWidth,
-      imgTotalHeight,
-      vwToPx(5.65),
-      vwToPx(16.77),
-      vwToPx(88.6),
-      vwToPx(139.14)
-    );
+    try {
+      //kivicube-scene生成照片的宽和高信息，在生成海报时裁切照片时用到
+      const { width: picWidth, height: picHeight } = await wx.getImageInfo({
+        src: photoPath,
+      });
+      let img = await loadImg(canvas, photoPath);
+      //最终生成在海报上照片的宽高比
+      let genePhotoRatio = 59.07 / 92.77;
+      //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
+      let imgTotalHeight = picWidth / genePhotoRatio;
+      let imgStartY = (picHeight - imgTotalHeight) / 2;
+      ctx.drawImage(
+        img,
+        0,
+        imgStartY,
+        picWidth,
+        imgTotalHeight,
+        vwToPx(5.65),
+        vwToPx(16.77),
+        vwToPx(88.6),
+        vwToPx(139.14)
+      );
+    } catch (error) {
+      handleImageGeneratingError();
+    }
 
     //生成二维码
-    let qrcode = await loadImg(canvas, "/asset/qrcode.png");
-    ctx.drawImage(
-      qrcode,
-      vwToPx(68.9),
-      vwToPx(159.45),
-      vwToPx(21.04),
-      vwToPx(21.34)
-    );
+    try {
+      let qrcode = await loadImg(canvas, "/asset/qrcode.png");
+      ctx.drawImage(
+        qrcode,
+        vwToPx(68.9),
+        vwToPx(159.45),
+        vwToPx(21.04),
+        vwToPx(21.34)
+      );
+    } catch (error) {
+      handleImageGeneratingError();
+    }
 
     //生成kivisense的logo
-    let logo = await loadImg(canvas, "/asset/logo.png");
-    ctx.drawImage(
-      logo,
-      vwToPx(26.22),
-      vwToPx(7.32),
-      vwToPx(46.04),
-      vwToPx(4.57)
-    );
+    try {
+      let logo = await loadImg(canvas, "/asset/logo.png");
+      ctx.drawImage(
+        logo,
+        vwToPx(26.22),
+        vwToPx(7.32),
+        vwToPx(46.04),
+        vwToPx(4.57)
+      );
+    } catch (error) {
+      handleImageGeneratingError();
+    }
 
     //生成文本
     ctx.fillStyle = "#feeca3";
@@ -206,22 +233,26 @@ Page({
     );
 
     //cnavas转换成能展示的图片
-    const { tempFilePath } = await wx.canvasToTempFilePath({
-      x: 0,
-      y: 0,
-      width: canvasWidth,
-      height: canvasHeight,
-      destWidth: canvas.width,
-      destHeight: canvas.height,
-      canvas,
-    });
+    try {
+      const { tempFilePath } = await wx.canvasToTempFilePath({
+        x: 0,
+        y: 0,
+        width: canvasWidth,
+        height: canvasHeight,
+        destWidth: canvas.width,
+        destHeight: canvas.height,
+        canvas,
+      });
 
-    //显示海报，隐藏拍照按钮
-    this.setData({
-      posterUrl: tempFilePath,
-      hidePoster: false,
-      hideTakePhoto: true,
-    });
+      //显示海报，隐藏拍照按钮
+      this.setData({
+        posterUrl: tempFilePath,
+        hidePoster: false,
+        hideTakePhoto: true,
+      });
+    } catch (error) {
+      handleImageGeneratingError();
+    }
 
     wx.hideLoading();
   },
@@ -240,10 +271,17 @@ Page({
     const savePhotoToAlbum = () => {
       wx.saveImageToPhotosAlbum({
         filePath: this.data.posterUrl,
-        success: () => {
+        success() {
           wx.showToast({
             icon: "none",
             title: "照片已保存到相册",
+            duration: 1000,
+          });
+        },
+        fail() {
+          wx.showToast({
+            icon: "none",
+            title: "照片保存失败，请稍后再试",
             duration: 1000,
           });
         },

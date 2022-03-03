@@ -1,0 +1,14 @@
+<view class="loading-warper">
+  <image src='/asset/bg.jpg' mode="widthFix" class="bg"></image>
+  <view class="mask"></view>
+  <view class="loadingcircle-box">
+    <view class="loadingcircle-left" style="transform:rotate({{progress>=50?3.6*(progress-50):''}}deg)"></view>
+    <view class="loadingcircle-right" style="transform:rotate({{progress<50?3.6*progress:0}}deg);{{progress>=50?'border-color:rgb(255, 138, 70)':''}}"></view>
+  </view>
+  <image src="./images/loading-bird.png" class="loading-bird"></image>
+  <text class="progress">加载中{{progress}}%</text>
+  <view class="notice" wx:if="{{!isOnlineLoading}}">
+    <image src="./images/sun.png" class="sun-image" />
+    <text>在天气晴朗的白天进行体验</text>
+  </view>
+</view>

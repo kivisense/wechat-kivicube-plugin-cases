@@ -1,0 +1,14 @@
+<view class="scan-container">
+  <view class="scan-warper">
+    <image src="./images/work.png" class="work" />
+    <image src="./images/corner.png" class="top-left" />
+    <image src="./images/corner.png" class="top-right" />
+    <image src="./images/corner.png" class="bottom-left" />
+    <image src="./images/corner.png" class="bottom-right" />
+    <view class="tips">正对与壁画重合并扫描</view>
+  </view>
+  <view class="tips-container" animation="{{animationData}}">
+    <image src="./images/phone.png" />
+    <view>请保持手机静止，正对壁画扫描。</view>
+  </view>
+</view>

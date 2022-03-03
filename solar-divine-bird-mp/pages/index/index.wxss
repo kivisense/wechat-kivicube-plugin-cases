@@ -1,0 +1,140 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(183deg, rgba(7, 6, 6, 0) 0%, #292323 100%);
+  opacity: 0.84;
+}
+
+.hide-choose-btn {
+  position: absolute;
+  left: 16px;
+}
+
+.title {
+  margin-top: 101.6vw;
+  width: 36vw;
+  height: 17.07vw;
+  font-size: 8.53vw;
+  font-family: PangMenZhengDao;
+  color: #ffffff;
+  line-height: 9.87vw;
+  text-shadow: 0px 1px 5px rgba(32, 35, 44, 0.63);
+  z-index: 2;
+  text-align: center;
+}
+
+.position {
+  display: flex;
+  align-items: center;
+  margin-top: 7.47vw;
+  z-index: 2;
+}
+
+.position image {
+  width: 4.8vw;
+  height: 5.87vw;
+}
+
+.position-content {
+  margin-left: 1.86vw;
+  width: 45vw;
+  color: rgba(255, 255, 255, 1);
+  font-weight: normal;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 66.13vw;
+}
+
+.btn image {
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
+
+.btn view {
+  color: rgba(255, 255, 255, 1);
+  font-weight: bold;
+  z-index: 2;
+}
+
+.exprience {
+  position: absolute;
+  bottom: 25vw;
+  width: 66.13vw;
+  height: 15.47vw;
+}
+
+.btn-warper {
+  position: absolute;
+  bottom: 10vw;
+  z-index: 2;
+}
+
+.online {
+  position: relative;
+  width: 52.27vw;
+  height: 12.53vw;
+}
+
+.offline {
+  position: relative;
+  margin-top: 5.07vw;
+  width: 52.27vw;
+  height: 12.53vw;
+}
+
+.produce {
+  position: absolute;
+  bottom: 15vw;
+  height: 4.53vw;
+  font-size: 3.2vw;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 4.53vw;
+  z-index: 2;
+}
+
+.produce view {
+  height: 4.53vw;
+  font-size: 3.2vw;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 4.53vw;
+}
+
+.produce .underline {
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+}

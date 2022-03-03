@@ -1,0 +1,14 @@
+{
+  "navigationStyle": "custom",
+  "disableScroll": true,
+  "usingComponents": {
+    "kivicube-scene": "plugin://kivicube/kivicube-scene",
+    "back-button": "/components/back-button/back-button",
+    "loading": "/components/loading/loading",
+    "warning": "/components/warning/warning",
+    "copyright": "/components/copyright/copyright",
+    "work-detail": "/components/work-detail/work-detail",
+    "scan-tips": "/components/scan-tips/scan-tips",
+    "poster": "/components/poster/poster"
+  }
+}

@@ -1,0 +1,10 @@
+<view class="photo-container">
+  <canvas id="posterCanvas" class="poster-canvas" canvas-id="poster-canvas"></canvas>
+  <view class="poster-warper" wx:if="{{showPoster}}">
+    <image src="{{posterUrl}}" class="poster-img" show-menu-by-longpress></image>
+    <view class="btn-warper">
+      <view bindtap="rePhoto" class="btn">重  拍</view>
+      <view bindtap="savePhoto" class="btn">保  存</view>
+    </view>
+  </view>
+</view>

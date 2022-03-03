@@ -1,0 +1,39 @@
+/* 写在分包里的css样式无法生效,所以样式写在了app.wxss,分包中使用的样式以subpkg开头 */
+/* 详情见https://developers.weixin.qq.com/community/develop/doc/0004a84f8149b842802c298a650800 */
+
+.subpkg-scene {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.subpkg-takephoto {
+  position: absolute;
+  z-index: 3;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 21.87vw;
+  height: 21.87vw;
+}
+
+.subpkg-changeamera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 19.73vw;
+  right: 14.13vw;
+  width: 11.2vw;
+  height: 11.2vw;
+  background: rgba(255, 238, 228, 0.41);
+  box-shadow: 0vw 0.53vw 1.87vw 0vw rgba(58, 40, 40, 0.25);
+  backdrop-filter: blur(15px);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.subpkg-changeamera image {
+  width: 5.33vw;
+  height: 5.33vw;
+}

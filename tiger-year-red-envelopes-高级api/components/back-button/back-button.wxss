@@ -1,0 +1,5 @@
+.back {
+  position: absolute;
+  left: 2.67vw;
+  z-index: 100;
+}

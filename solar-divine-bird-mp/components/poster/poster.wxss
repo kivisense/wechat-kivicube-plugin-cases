@@ -1,0 +1,60 @@
+.photo-container {
+  overflow: hidden;
+}
+
+.poster-canvas {
+  position: absolute;
+  top: -50vw;
+  left: 1000vw;
+  width: 100vw;
+  height: 173.28vw;
+  z-index: 100;
+}
+
+.poster-warper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 5;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+  .poster-warper {
+    -webkit-backdrop-filter: blur(50px);
+    backdrop-filter: blur(50px);
+  }
+}
+
+.poster-img {
+  width: 69.87vw;
+  height: 121.07vw;
+  z-index: 10;
+  border-radius: 3.48vw;
+}
+
+.btn-warper {
+  margin-top: 8vw;
+  width: 68vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 26.13vw;
+  height: 12.27vw;
+  border-radius: 6.27vw;
+  border: 0.27vw solid #ffffff;
+  font-size: 4.27vw;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 12.27vw;
+}

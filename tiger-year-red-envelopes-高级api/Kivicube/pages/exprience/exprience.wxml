@@ -1,0 +1,20 @@
+<view>
+    <back-button wx:if="{{hidePoster}}"></back-button>
+    <loading wx:if="{{showCustomDownload}}"></loading>
+    <view wx:if="{{showKiviScene}}">
+        <kivicube-scene class="subpkg-kivi-scene" cameraPosition="{{cameraPos}}" flash="off" touchable="{{false}}" scene-id="lU0kh9MnQBxa15Op5tcl3SJV53FWcSk6" bindready="ready" binderror="error" bindloadSceneEnd="loadSceneEnd" bindsceneStart="sceneStart" hideTakePhoto hideLoading hideDownload hideScan />
+        <image src="/asset/custom-photo.png" bindtap="generatePhoto" class="subpkg-custom-photo" hidden="{{showCustomDownload||!hidePoster}}"></image>
+        <image src="/asset/switch-camera.png" bindtap="switchCamera" class="subpkg-switch-camera" hidden="{{showCustomDownload||!hidePoster}}"></image>
+    </view>
+    <view wx:if="{{showRedEnvelopes}}" class="subpkg-red-envelopes-container">
+        <view class="subpkg-red-envelopes-warper">
+            <image src="/asset/red-envelopes.png" class="subpkg-red-envelopes-bg"></image>
+            <view bindtap="showRedPackage" class="subpkg-red-envelopes-button">
+                <image src="/asset/share-red-envelopes-button.png"></image>
+                <text class="gold-text">领取红包封面</text>
+            </view>
+        </view>
+    </view>
+    <canvas type="2d" id="photoCanvas" class="subpkg-poster-canvas"></canvas>
+    <poster hidden="{{hidePoster}}" poster-url="{{posterUrl}}" bindrephoto="rePhoto"></poster>
+</view>

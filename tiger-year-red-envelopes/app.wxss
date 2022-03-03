@@ -1,12 +1,8 @@
-/**app.wxss**/
-
 .gold-text {
-  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
-    "WenQuanYi Micro Hei", sans-serif;
   color: #feeca3;
 }
 
-/* 写在分包里的css样式无法生效,所以样式写在了app.wxss,分包的样式以subpkg开头 */
+/* 写在分包里的css样式无法生效,所以样式写在了app.wxss,分包中使用的样式以subpkg开头 */
 /* 详情见https://developers.weixin.qq.com/community/develop/doc/0004a84f8149b842802c298a650800 */
 
 .subpkg-loading-warper {
@@ -60,7 +56,7 @@
   height: 5.96vw;
   font-size: 14px;
   line-height: 4.53vw;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 @media screen and (min-aspect-ratio: 375/668) {
