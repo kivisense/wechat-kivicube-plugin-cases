@@ -137,12 +137,22 @@ Page({
     wx.showLoading({
       title: "拍照中",
     });
-    this.view.takePhoto().then((photoPath) => {
-      this.setData({
-        tempUrl: photoPath,
-        showPoster: true,
+    this.view
+      .takePhoto()
+      .then((photoPath) => {
+        this.setData({
+          tempUrl: photoPath,
+          showPoster: true,
+        });
+      })
+      .catch((e) => {
+        wx.showToast({
+          icon: "none",
+          title: "照片生成失败，请稍后再试",
+          duration: 1000,
+        });
+        console.error(e);
       });
-    });
   },
   rePhoto() {
     this.setData({

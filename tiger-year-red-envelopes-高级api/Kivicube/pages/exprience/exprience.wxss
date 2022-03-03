@@ -1,0 +1,2 @@
+/* 写在分包里的css样式无法生效,所以样式写在了app.wxss,分包中使用的样式以subpkg开头 */
+/* 详情见https://developers.weixin.qq.com/community/develop/doc/0004a84f8149b842802c298a650800 */

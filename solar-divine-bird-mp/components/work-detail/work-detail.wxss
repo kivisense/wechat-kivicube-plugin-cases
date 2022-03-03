@@ -24,7 +24,6 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 3;
   background: rgba(36, 36, 36, 0.78);
   backdrop-filter: blur(50px);
   z-index: 10;
@@ -75,8 +74,7 @@
   margin-top: 5.6vw;
   height: 9.6vw;
   font-size: 6.67vw;
-  font-family: PingFangSC-Semibold, PingFang SC;
-  font-weight: 700;
+  font-weight: bold;
   color: #313435;
   line-height: 9.6vw;
 }
@@ -92,8 +90,7 @@
   margin-top: 4.8vw;
   width: 80vw;
   height: 25.33vw;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
+  font-weight: normal;
   color: #464b50;
   line-height: 6vw;
   font-size: 4vw;
@@ -105,8 +102,7 @@
   width: 16vw;
   height: 4.53vw;
   font-size: 3.2vw;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
+  font-weight: normal;
   color: #912c07;
   line-height: 4.53vw;
 }

@@ -9,6 +9,19 @@ Page({
   },
 
   onLoad() {
+    wx.loadFontFace({
+      family: "PangMenZhengDao",
+      source:
+        'url("https://kivicube-resource.kivisense.com/projects/solar-divine-bird-mp/fonts/PangMenZhengDaoBiaoTiTi.ttf")',
+      fail(e) {
+        wx.showToast({
+          title: "字体文件加载失败",
+          icon: "none",
+          duration: 1000,
+        });
+        console.error(e);
+      },
+    });
     //设置左上角按钮的位置和高度
     const { top: capsuleTop, height: capsuleHeight } =
       wx.getMenuButtonBoundingClientRect();

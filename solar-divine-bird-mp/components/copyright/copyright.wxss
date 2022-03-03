@@ -20,7 +20,7 @@
   line-height: 8.53vw;
   z-index: 3;
   backdrop-filter: blur(15px);
-  box-shadow: 0rem 0.53rem 1.87rem 0rem rgba(58, 40, 40, 0.25);
+  box-shadow: 0vw 0.53vw 1.87vw 0vw rgba(58, 40, 40, 0.25);
 }
 
 .copyright-icon-container .copyright-image {
@@ -35,7 +35,7 @@
   background-color: rgba(255, 255, 255, 0.53);
   text-align: center;
   border-radius: 4.8vw;
-  box-shadow: 0rem 0.53rem 1.87rem 0rem rgba(58, 40, 40, 0.25);
+  box-shadow: 0vw 0.53vw 1.87vw 0vw rgba(58, 40, 40, 0.25);
   backdrop-filter: blur(27px);
   z-index: 0;
   transform: scale(0);
@@ -45,7 +45,7 @@
   margin-top: 2.93vw;
   color: rgba(70, 70, 70, 1);
   font-size: 3.73vw;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 5.33vw;
 }
 

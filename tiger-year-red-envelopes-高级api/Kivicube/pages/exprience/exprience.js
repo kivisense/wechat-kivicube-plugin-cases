@@ -103,130 +103,161 @@ Page({
       mask: true,
     });
     //自定义拍照
-    this.view.takePhoto().then(async (photo) => {
-      //在canvas上生成海报
-      //获取canvas实例
-      const canvasInstance = await new Promise((resolve) => {
-        wx.createSelectorQuery()
-          .select("#photoCanvas")
-          .fields({
-            node: true,
-            size: true,
-          })
-          .exec((res) => {
-            resolve(res[0]);
-          });
-      });
-
-      //kivicube-scene生成照片的宽和高信息，在生成海报时裁切照片时用到
-      const { width: picWidth, height: picHeight } = await wx.getImageInfo({
-        src: photo,
-      });
-      //因为后面要设置canvas画布的实际大小，所以获取物理像素比
-      let dpr = wx.getSystemInfoSync().pixelRatio;
-      //canvas的宽度和高度，在生成海报时大量使用(逻辑像素)
-      const canvasWidth = canvasInstance.width;
-      const canvasHeight = canvasInstance.height;
-
-      //获取并存储canvas实例，在生成海报阶段的wx.canvasToTempFilePath使用
-      const canvas = canvasInstance.node;
-
-      //获取canvas上下文，在生成海报中绘制各种元素时使用
-      const ctx = canvas.getContext("2d");
-
-      //设置canvas画布的大小（物理像素）
-      canvas.width = canvasWidth * dpr;
-      canvas.height = canvasHeight * dpr;
-
-      const vwToPx = (vw) => (canvas.width / 100) * vw;
-
-      const loadImg = (canvas, imgPath) => {
-        return new Promise((resolve, reject) => {
-          let img = canvas.createImage();
-          img.src = imgPath;
-          img.onload = () => {
-            resolve(img);
-          };
-          img.onerror = (e) => {
-            reject(new Error("图片加载错误" + " " + e.message));
-          };
+    this.view
+      .takePhoto()
+      .then(async (photo) => {
+        //在canvas上生成海报
+        //获取canvas实例
+        const canvasInstance = await new Promise((resolve) => {
+          wx.createSelectorQuery()
+            .select("#photoCanvas")
+            .fields({
+              node: true,
+              size: true,
+            })
+            .exec((res) => {
+              resolve(res[0]);
+            });
         });
-      };
 
-      //canvas绘制过程中出现的数字均为设计图上的内容
-      //生成海报背景图片
-      const bgImg = await loadImg(canvas, "/asset/poster-bg.png");
-      ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+        //因为后面要设置canvas画布的实际大小，所以获取物理像素比
+        let dpr = wx.getSystemInfoSync().pixelRatio;
+        //canvas的宽度和高度，在生成海报时大量使用(逻辑像素)
+        const canvasWidth = canvasInstance.width;
+        const canvasHeight = canvasInstance.height;
 
-      //在海报上生成kivicube-scene拍摄出的照片
-      let img = await loadImg(canvas, photo);
-      //最终生成在海报上照片的宽高比
-      let genePhotoRatio = 59.07 / 92.77;
-      //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
-      let imgTotalHeight = picWidth / genePhotoRatio;
-      let imgStartY = (picHeight - imgTotalHeight) / 2;
-      ctx.drawImage(
-        img,
-        0,
-        imgStartY,
-        picWidth,
-        imgTotalHeight,
-        vwToPx(5.65),
-        vwToPx(16.77),
-        vwToPx(88.6),
-        vwToPx(139.14)
-      );
+        //获取并存储canvas实例，在生成海报阶段的wx.canvasToTempFilePath使用
+        const canvas = canvasInstance.node;
 
-      //生成二维码
-      let qrcode = await loadImg(canvas, "/asset/qrcode.png");
-      ctx.drawImage(
-        qrcode,
-        vwToPx(68.9),
-        vwToPx(159.45),
-        vwToPx(21.04),
-        vwToPx(21.34)
-      );
+        //获取canvas上下文，在生成海报中绘制各种元素时使用
+        const ctx = canvas.getContext("2d");
 
-      //生成kivisense的logo
-      let logo = await loadImg(canvas, "/asset/logo.png");
-      ctx.drawImage(
-        logo,
-        vwToPx(26.22),
-        vwToPx(7.32),
-        vwToPx(46.04),
-        vwToPx(4.57)
-      );
+        //设置canvas画布的大小（物理像素）
+        canvas.width = canvasWidth * dpr;
+        canvas.height = canvasHeight * dpr;
 
-      //生成文本
-      ctx.fillStyle = "#feeca3";
-      ctx.font = `normal 700 ${vwToPx(6.1)}px PingFangSC-Semibold`;
-      ctx.fillText("AR虎娃贺新春", vwToPx(8.23), vwToPx(161.59 + 6.1));
-      ctx.font = `normal 400 ${vwToPx(4.57)}px PingFangSC`;
-      ctx.fillText(
-        "即刻体验，领取红包封面",
-        vwToPx(8.23),
-        vwToPx(161.59 + 6.1 + 8.54)
-      );
+        const vwToPx = (vw) => (canvas.width / 100) * vw;
 
-      //cnavas转换成能展示的图片
-      const { tempFilePath } = await wx.canvasToTempFilePath({
-        x: 0,
-        y: 0,
-        width: canvasWidth,
-        height: canvasHeight,
-        destWidth: canvas.width,
-        destHeight: canvas.height,
-        canvas,
+        const loadImg = (canvas, imgPath) => {
+          return new Promise((resolve, reject) => {
+            let img = canvas.createImage();
+            img.src = imgPath;
+            img.onload = () => {
+              resolve(img);
+            };
+            img.onerror = () => {
+              //onerror函数没有参数
+              reject(new Error("图片加载错误"));
+            };
+          });
+        };
+
+        //canvas绘制过程中出现的数字均为设计图上的内容
+        //生成海报背景图片
+        try {
+          const bgImg = await loadImg(canvas, "/asset/poster-bg.png");
+          ctx.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+        } catch (error) {
+          throw new Error(error);
+        }
+
+        //在海报上生成kivicube-scene拍摄出的照片
+        try {
+          //kivicube-scene生成照片的宽和高信息，在生成海报时裁切照片时用到
+          const { width: picWidth, height: picHeight } = await wx.getImageInfo({
+            src: photo,
+          });
+          let img = await loadImg(canvas, photo);
+          //最终生成在海报上照片的宽高比
+          let genePhotoRatio = 59.07 / 92.77;
+          //获取最终生成海报时所需kivi-scene拍摄出照片的总高度和纵向起始位置
+          let imgTotalHeight = picWidth / genePhotoRatio;
+          let imgStartY = (picHeight - imgTotalHeight) / 2;
+          ctx.drawImage(
+            img,
+            0,
+            imgStartY,
+            picWidth,
+            imgTotalHeight,
+            vwToPx(5.65),
+            vwToPx(16.77),
+            vwToPx(88.6),
+            vwToPx(139.14)
+          );
+        } catch (error) {
+          throw new Error(error);
+        }
+
+        //生成二维码
+        try {
+          let qrcode = await loadImg(canvas, "/asset/qrcode.png");
+          ctx.drawImage(
+            qrcode,
+            vwToPx(68.9),
+            vwToPx(159.45),
+            vwToPx(21.04),
+            vwToPx(21.34)
+          );
+        } catch (error) {
+          throw new Error(error);
+        }
+
+        //生成kivisense的logo
+        try {
+          let logo = await loadImg(canvas, "/asset/logo.png");
+          ctx.drawImage(
+            logo,
+            vwToPx(26.22),
+            vwToPx(7.32),
+            vwToPx(46.04),
+            vwToPx(4.57)
+          );
+        } catch (error) {
+          throw new Error(error);
+        }
+
+        //生成文本
+        ctx.fillStyle = "#feeca3";
+        ctx.font = `normal 700 ${vwToPx(6.1)}px PingFangSC-Semibold`;
+        ctx.fillText("AR虎娃贺新春", vwToPx(8.23), vwToPx(161.59 + 6.1));
+        ctx.font = `normal 400 ${vwToPx(4.57)}px PingFangSC`;
+        ctx.fillText(
+          "即刻体验，领取红包封面",
+          vwToPx(8.23),
+          vwToPx(161.59 + 6.1 + 8.54)
+        );
+
+        //cnavas转换成能展示的图片
+        try {
+          const { tempFilePath } = await wx.canvasToTempFilePath({
+            x: 0,
+            y: 0,
+            width: canvasWidth,
+            height: canvasHeight,
+            destWidth: canvas.width,
+            destHeight: canvas.height,
+            canvas,
+          });
+          //显示海报，隐藏拍照按钮
+          this.setData({
+            posterUrl: tempFilePath,
+            hidePoster: false,
+          });
+        } catch (error) {
+          throw new Error(error);
+        }
+
+        wx.hideLoading();
+      })
+      .catch((e) => {
+        wx.hideLoading();
+        wx.showToast({
+          icon: "none",
+          title: "照片生成失败，请稍后再试",
+          duration: 1000,
+        });
+        console.error(e);
       });
-
-      //显示海报，隐藏拍照按钮
-      this.setData({
-        posterUrl: tempFilePath,
-        hidePoster: false,
-      });
-
-      wx.hideLoading();
-    });
   },
 
   //kivicube-scene的binderror事件绑定的函数，用于判定错误信息，
@@ -302,7 +333,6 @@ Page({
           showRedEnvelopes: false,
         });
       },
-      fail: (err) => {},
     });
   },
 });

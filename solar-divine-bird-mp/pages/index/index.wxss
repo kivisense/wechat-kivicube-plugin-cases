@@ -37,12 +37,6 @@
   left: 16px;
 }
 
-@font-face {
-  font-family: "PangMenZhengDao";
-  src: url("https://kivicube-resource.kivisense.com/projects/solar-divine-bird-mp/fonts/PangMenZhengDaoBiaoTiTi.ttf")
-    format("truetype");
-}
-
 .title {
   margin-top: 101.6vw;
   width: 36vw;
@@ -72,7 +66,7 @@
   margin-left: 1.86vw;
   width: 45vw;
   color: rgba(255, 255, 255, 1);
-  font-weight: 500;
+  font-weight: normal;
 }
 
 .btn {
@@ -85,11 +79,12 @@
 .btn image {
   position: absolute;
   width: 100%;
+  height: auto;
 }
 
 .btn view {
   color: rgba(255, 255, 255, 1);
-  font-weight: 700;
+  font-weight: bold;
   z-index: 2;
 }
 
@@ -124,8 +119,7 @@
   bottom: 15vw;
   height: 4.53vw;
   font-size: 3.2vw;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 700;
+  font-weight: bold;
   color: #ffffff;
   line-height: 4.53vw;
   z-index: 2;
@@ -134,8 +128,7 @@
 .produce view {
   height: 4.53vw;
   font-size: 3.2vw;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 700;
+  font-weight: bold;
   color: #ffffff;
   line-height: 4.53vw;
 }

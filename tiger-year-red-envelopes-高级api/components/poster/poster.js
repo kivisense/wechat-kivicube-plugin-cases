@@ -1,5 +1,8 @@
 // components/poster/poster.js
 Component({
+  options: {
+    styleIsolation: "apply-shared",
+  },
   properties: {
     posterUrl: String,
     //自定义组件手动支持hidden
@@ -17,10 +20,17 @@ Component({
       const savePhotoToAlbum = () => {
         wx.saveImageToPhotosAlbum({
           filePath: this.data.posterUrl,
-          success: () => {
+          success() {
             wx.showToast({
               icon: "none",
               title: "照片已保存到相册",
+              duration: 1000,
+            });
+          },
+          fail() {
+            wx.showToast({
+              icon: "none",
+              title: "照片保存失败，请稍后再试",
               duration: 1000,
             });
           },

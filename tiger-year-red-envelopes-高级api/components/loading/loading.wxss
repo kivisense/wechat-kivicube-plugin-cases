@@ -1,9 +1,3 @@
-.gold-text {
-  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
-    "WenQuanYi Micro Hei", sans-serif;
-  color: #feeca3;
-}
-
 .loading-warper {
   position: absolute;
   width: 100vw;
@@ -55,7 +49,7 @@
   height: 5.96vw;
   font-size: 14px;
   line-height: 4.53vw;
-  font-weight: 400;
+  font-weight: normal;
 }
 
 @media screen and (min-aspect-ratio: 375/668) {

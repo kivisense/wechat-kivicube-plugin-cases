@@ -54,8 +54,7 @@
   border-radius: 6.27vw;
   border: 0.27vw solid #ffffff;
   font-size: 4.27vw;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 700;
+  font-weight: bold;
   color: #ffffff;
   line-height: 12.27vw;
 }

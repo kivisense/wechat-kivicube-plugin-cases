@@ -1,10 +1,4 @@
-.gold-text {
-  font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
-    "WenQuanYi Micro Hei", sans-serif;
-  color: #feeca3;
-}
-
-.subpkg-poster-img {
+.poster-img {
   position: absolute;
   top: 27.73vw;
   left: 6.27vw;
@@ -13,7 +7,7 @@
   z-index: 10;
 }
 
-.subpkg-savephoto {
+.savephoto {
   position: absolute;
   right: 3.73vw;
   top: 195.2vw;
@@ -21,13 +15,13 @@
   height: 14.93vw;
 }
 
-.subpkg-savephoto image {
+.savephoto image {
   width: 100%;
   height: 100%;
   vertical-align: middle;
 }
 
-.subpkg-savephoto text {
+.savephoto text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -36,7 +30,7 @@
   line-height: 5.73vw;
 }
 
-.subpkg-rephoto {
+.rephoto {
   position: absolute;
   left: 4vw;
   top: 195.2vw;
@@ -44,13 +38,13 @@
   height: 14.93vw;
 }
 
-.subpkg-rephoto image {
+.rephoto image {
   width: 100%;
   height: 100%;
   vertical-align: middle;
 }
 
-.subpkg-rephoto text {
+.rephoto text {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -60,21 +54,21 @@
 }
 
 @media screen and (min-aspect-ratio: 375/668) {
-  .subpkg-poster-img {
+  .poster-img {
     top: 21.87vw;
     left: 17.33vw;
     width: 66.93vw;
     height: 125.6vw;
   }
 
-  .subpkg-savephoto {
+  .savephoto {
     bottom: 12.8vw;
     left: 8.27vw;
     width: 41.6vw;
     height: 13.6vw;
   }
 
-  .subpkg-rephoto {
+  .rephoto {
     bottom: 12.8vw;
     right: 6.67vw;
     width: 41.6vw;
@@ -84,7 +78,6 @@
 
 .poster-warper {
   position: absolute;
-
   left: 0;
   right: 0;
   bottom: 0;

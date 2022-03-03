@@ -31,8 +31,7 @@
   width: 9.07vw;
   height: 6.4vw;
   font-size: 4.53vw;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
+  font-weight: normal;
   color: #ffffff;
   line-height: 6.4vw;
 }
@@ -42,8 +41,7 @@
   width: 78.4vw;
   height: 24.53vw;
   font-size: 3.73vw;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
+  font-weight: normal;
   color: #ffffff;
   line-height: 6.13vw;
   letter-spacing: 1px;
