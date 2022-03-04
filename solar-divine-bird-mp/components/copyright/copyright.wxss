@@ -24,6 +24,7 @@
 }
 
 .copyright-icon-container .copyright-image {
+  height: auto;
   width: 4.27vw;
 }
 
