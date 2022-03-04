@@ -79,9 +79,22 @@ Page({
   },
 
   loadEnd() {
-    const { name } = this.view.sceneInfo.objects[0];
-    this.obj = this.view.getObject(name);
-    this.obj.visible = false;
+    const alphaVideos = this.view.sceneInfo.objects;
+    const { name: startName } = alphaVideos[0];
+    const { name: loopName } = alphaVideos[1];
+    this.startVideo = this.view.getObject(startName);
+    this.loopVideo = this.view.getObject(loopName);
+
+    this.startVideo.addEventListener("ended", () => {
+      this.startVideoEnded = true;
+      this.startVideo.visible = false;
+      this.loopVideo.visible = true;
+      this.loopVideo.loop = true; // 是否循环播放
+      this.loopVideo.play();
+    });
+
+    this.startVideo.visible = false;
+    this.loopVideo.visible = false;
     this.setData({
       showLoading: false,
       showWarning: true,
@@ -89,9 +102,19 @@ Page({
   },
 
   tracked() {
+    //此标志位为true时（已经track到图像时），点击“知道了”可以直接播放startVideo
     this.imgTracked = true;
     if (!this.data.showWarning) {
-      this.obj.visible = true;
+      //startVideo未播放完，再次track时，继续播放startVideo。
+      //startVideo播放完后，再次track时，循环播放loopVideo
+      if (this.startVideoEnded) {
+        this.loopVideo.loop = true;
+        this.loopVideo.play();
+      } else {
+        this.startVideo.visible = true;
+        this.startVideo.loop = false; // 是否循环播放
+        this.startVideo.play();
+      }
       this.setData({
         showInfo: true,
         showScanTips: false,
@@ -102,6 +125,8 @@ Page({
   lostTrack() {
     this.imgTracked = false;
     if (!this.data.showWarning) {
+      this.startVideo.pause();
+      this.loopVideo.pause();
       this.setData({
         showInfo: false,
         showScanTips: true,
@@ -162,7 +187,9 @@ Page({
   },
   closeWarning() {
     if (this.imgTracked) {
-      this.obj.visible = true;
+      this.startVideo.visible = true;
+      this.startVideo.loop = false;
+      this.startVideo.play();
       this.setData({
         showInfo: true,
       });
