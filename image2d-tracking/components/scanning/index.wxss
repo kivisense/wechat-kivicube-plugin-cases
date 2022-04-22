@@ -14,7 +14,7 @@
   align-items: center;
   font-size: 3.73vw;
   color: rgba(255, 255, 255, 1);
-  width: 75.47vw; 
+  width: 75.47vw;
   height: 109.6vw;
 }
 
@@ -23,9 +23,18 @@
   top: 0;
 }
 
-.focus-frame image {
+.focus-frame-image1 {
   position: absolute;
   z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.focus-frame-image2 {
+  position: absolute;
+  z-index: -1;
+  width: 44vw;
+  height: 78.13vw;
 }
 
 .shadow {

@@ -5,6 +5,10 @@
             {
                 "type": "file",
                 "value": ".eslintrc.js"
+            },
+            {
+                "type": "file",
+                "value": "marker.png"
             }
         ]
     },
@@ -49,7 +53,7 @@
     "compileType": "miniprogram",
     "libVersion": "2.19.4",
     "appid": "wx03800a762308862c",
-    "projectname": "wx-kivi-image",
+    "projectname": "image2d-tracking",
     "debugOptions": {
         "hidedInDevtools": []
     },

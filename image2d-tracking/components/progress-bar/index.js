@@ -1,6 +1,12 @@
 Component({
+  options: {
+    styleIsolation: "isolated",
+  },
   properties: {
-    progress: 0,
+    progress: {
+      type: Number,
+      value: 0,
+    },
   },
   data: {
     rotateRight: "",
