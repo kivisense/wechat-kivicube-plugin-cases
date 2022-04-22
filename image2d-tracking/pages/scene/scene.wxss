@@ -1,0 +1,29 @@
+.kivicube {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.loading {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
+.scan {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+.photo {
+  position: absolute;
+  bottom: 14.4vw;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 21.87vw;
+  height: 21.87vw;
+  z-index: 10;
+}

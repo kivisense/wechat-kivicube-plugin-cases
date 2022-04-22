@@ -1,0 +1,15 @@
+<view class="container">
+  <image src="../../assets/home/bg.jpg" class="bg" mode="aspectFill"></image>
+  <view class="text-box">
+    <image src="../../assets/home/image.png" class="image"></image>
+    <image src="../../assets/home/text.png" class="text"></image>
+  </view>
+  <view class="button" bindtap="start">
+    <image src="../../assets/home/button.png"></image>
+    点击体验AR
+  </view>
+  <view class="link">
+    <!-- 免费制作同款AR -->
+  </view>
+  <image src="../../assets/home/shadow.png" class="shadow"></image>
+</view>

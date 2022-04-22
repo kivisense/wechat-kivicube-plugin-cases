@@ -1,0 +1,8 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "kivicube-scene": "plugin://kivicube/kivicube-scene",
+    "loading": "/components/loading/index",
+    "scanning": "/components/scanning/index"
+  }
+}

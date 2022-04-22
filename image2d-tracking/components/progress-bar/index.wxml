@@ -1,0 +1,10 @@
+
+<view class="circle">
+  <view class="left">
+    <view class="ring" style="{{rotateLeft}}"></view>
+  </view>
+  <view class="right">
+    <view class="ring" style="{{rotateRight}}"></view>
+  </view>
+  <view class="circle sm"></view>
+</view>

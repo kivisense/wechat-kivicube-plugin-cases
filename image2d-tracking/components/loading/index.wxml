@@ -1,0 +1,14 @@
+<view class="loading">
+  <view class="box">
+    <progress-bar class="progress-bar" style="mix-blend-mode: lighten;" progress="{{percent}}"></progress-bar>
+    <view class="progress-bar">
+      <view class="progress" style="transform: translate({{posX}}vw, {{posY}}vw)">
+        <image src="../../assets/progress.png"></image>
+        <text>{{percent}}%</text>
+      </view>
+      <image style="width: 58.67vw; height: 58.67vw;z-index: 10" src="/assets/loading.png"></image>
+    </view>
+    <image src="/assets/loading_bg.png"></image>
+    <view class="text">Loading...</view>
+  </view>
+</view>

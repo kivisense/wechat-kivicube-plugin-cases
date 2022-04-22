@@ -1,0 +1,35 @@
+.scanning {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.focus-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.73vw;
+  color: rgba(255, 255, 255, 1);
+  width: 75.47vw; 
+  height: 109.6vw;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+}
+
+.focus-frame image {
+  position: absolute;
+  z-index: -1;
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
