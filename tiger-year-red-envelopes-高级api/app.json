@@ -13,7 +13,7 @@
       "pages": ["pages/exprience/exprience"],
       "plugins": {
         "kivicube": {
-          "version": "1.6.1",
+          "version": "1.6.5",
           "provider": "wx3bbab3920eabccb2"
         }
       }
