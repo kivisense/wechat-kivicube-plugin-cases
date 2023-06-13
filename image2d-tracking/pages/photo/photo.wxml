@@ -1,20 +1,14 @@
 <view class="photo">
-  <view  style="margin-top: {{marginTop}}px;" class="container">
+  <view style="margin-top: {{marginTop}}px;" class="container">
     <view class="picture">
       <image wx:if="{{photo}}" mode="aspectFit" src="{{photo}}"></image>
     </view>
     <view class="btns">
-      <view
-        class="btn"
-        bind:tap="retake"
-      >
+      <view class="btn" bind:tap="retake">
         <image src="/assets/photo/retake.png"></image>
         <text>重拍</text>
       </view>
-      <view
-          class="btn"
-          bind:tap="save"
-      >
+      <view class="btn" bind:tap="save">
         <image src="/assets/photo/save.png"></image>
         <text>保存</text>
       </view>

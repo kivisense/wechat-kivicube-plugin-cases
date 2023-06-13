@@ -1,12 +1,3 @@
-// 当分包使用此插件时，必须在使用组件前，调用此方法，设置分包路径。
-// 插件版本>=1.5.5支持
-const { setPackageRootPath, setOptions } = requirePlugin("kivicube");
-setPackageRootPath("Kivicube");
-setOptions({
-  license:
-    "Jt2bvLYURohP8VTC05Z04MdqPPG0XIfAkYAfNNCt2/WbeqFNezNhw6f4mEPHr6A5gu99ne+8mFFlAcRG1Nn5Md4hcwMhiyg1OG3+mHGJDESexvmCNqo0eo92fyNM9GEjzYQgfubNT9+uz8fvQfyRRXKY7KpDADDiZhZ8h7S82RAilRvEZMUQoGmh3uV25fHaQbCQPIKKRK48t5vJQ0VPT2PTjD0qH2hf7NCfBSVglWL4/U9DbfscvbNSN81EKUSKpIl2PoII+QVHprgIlULoiomhA+raupthKFiEQetVIAp7C+W2iucj8qh7lNVZt8Qpr6dETNWj6GOp8x28JaNQ8g==",
-});
-
 Page({
   data: {
     showLoading: true,
@@ -90,7 +81,7 @@ Page({
       this.startVideo.visible = false;
       this.loopVideo.visible = true;
       this.loopVideo.loop = true; // 是否循环播放
-      this.loopVideo.play();
+      this.loopVideo.videoContext.play();
     });
 
     this.startVideo.visible = false;
@@ -109,11 +100,11 @@ Page({
       //startVideo播放完后，再次track时，循环播放loopVideo
       if (this.startVideoEnded) {
         this.loopVideo.loop = true;
-        this.loopVideo.play();
+        this.loopVideo.videoContext.play();
       } else {
         this.startVideo.visible = true;
         this.startVideo.loop = false; // 是否循环播放
-        this.startVideo.play();
+        this.startVideo.videoContext.play();
       }
       this.setData({
         showInfo: true,
@@ -125,8 +116,8 @@ Page({
   lostTrack() {
     this.imgTracked = false;
     if (!this.data.showWarning) {
-      this.startVideo.pause();
-      this.loopVideo.pause();
+      this.startVideo.videoContext.pause();
+      this.loopVideo.videoContext.pause();
       this.setData({
         showInfo: false,
         showScanTips: true,
@@ -189,7 +180,7 @@ Page({
     if (this.imgTracked) {
       this.startVideo.visible = true;
       this.startVideo.loop = false;
-      this.startVideo.play();
+      this.startVideo.videoContext.play();
       this.setData({
         showInfo: true,
       });

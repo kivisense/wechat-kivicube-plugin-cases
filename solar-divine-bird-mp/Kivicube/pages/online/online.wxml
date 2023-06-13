@@ -4,9 +4,22 @@
 <work-detail></work-detail>
 <copyright onPageLeft="{{false}}"></copyright>
 <view wx:if="{{showAR}}">
-    <kivicube-scene cameraPosition="{{cameraPos}}" class="subpkg-scene" hideTakePhoto hideLoading hideDownload hideScan scene-id="gG17rF9Vd0zw6jB73vIVAtKw8v5lhtzm" bind:ready="ready" bind:error="error" binddown:loadAssetProgress="downloadProgress" bind:loadSceneEnd="loadEnd" touchable="{{false}}" />
-    <image bindtap="takePhoto" class="subpkg-takephoto" src="/asset/takephoto.png"></image>
-    <view class="subpkg-changeamera" bind:tap="changeCamera">
-        <image src="/asset/changecamera.png" />
-    </view>
+  <kivicube-scene
+    cameraPosition="{{cameraPos}}"
+    class="subpkg-scene"
+    hideTakePhoto
+    hideLoading
+    hideDownload
+    hideScan
+    scene-id="gG17rF9Vd0zw6jB73vIVAtKw8v5lhtzm"
+    bind:ready="ready"
+    bind:error="error"
+    binddown:loadAssetProgress="downloadProgress"
+    bind:loadSceneEnd="loadEnd"
+    touchable="{{false}}"
+  />
+  <image bindtap="takePhoto" class="subpkg-takephoto" src="/asset/takephoto.png"></image>
+  <view class="subpkg-changeamera" bind:tap="changeCamera">
+    <image src="/asset/changecamera.png" />
+  </view>
 </view>

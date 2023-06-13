@@ -1,9 +1,28 @@
 <view class="container">
   <copyright></copyright>
-  <image src='/asset/bg.jpg' mode="aspectFill" class="bg"></image>
-  <video class="bg-video" style="opacity:{{showVideo?'1':'0'}} ;" autoplay object-fit="cover" loop="true" enable-progress-gesture="{{false}}" show-play-btn="{{false}}" show-fullscreen-btn="{{false}}" controls="{{false}}" src="https://kivicube-resource.kivisense.com/projects/solar-divine-bird-mp/video/home-bg.mp4" bind:play="videoPlay"></video>
+  <image src="/asset/bg.jpg" mode="aspectFill" class="bg"></image>
+  <video
+    class="bg-video"
+    style="opacity:{{showVideo?'1':'0'}} ;"
+    autoplay
+    object-fit="cover"
+    loop="true"
+    enable-progress-gesture="{{false}}"
+    show-play-btn="{{false}}"
+    show-fullscreen-btn="{{false}}"
+    controls="{{false}}"
+    src="https://kivicube-resource.kivisense.com/projects/solar-divine-bird-mp/video/home-bg.mp4"
+    bind:play="videoPlay"
+  ></video>
   <view class="mask"></view>
-  <image src="/asset/back.png" style="{{'height:' + menuButtonHeight+';top:'+capsuleTop}}" class="hide-choose-btn" wx:if="{{showChooseBtn}}" bindtap="hideChooseBtn" mode="heightFix"></image>
+  <image
+    src="/asset/back.png"
+    style="{{'height:' + menuButtonHeight+';top:'+capsuleTop}}"
+    class="hide-choose-btn"
+    wx:if="{{showChooseBtn}}"
+    bindtap="hideChooseBtn"
+    mode="heightFix"
+  ></image>
   <view class="title">AR实境动态壁画</view>
   <view class="position">
     <image src="/asset/location-icon.png" />

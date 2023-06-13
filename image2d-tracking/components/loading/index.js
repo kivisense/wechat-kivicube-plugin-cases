@@ -14,7 +14,7 @@ Component({
     posY: 0,
   },
   observers: {
-    progress: function () {
+    progress() {
       const imageWidth = 58.67;
       const r = imageWidth / 2;
       const percent = parseInt(this.properties.progress);
