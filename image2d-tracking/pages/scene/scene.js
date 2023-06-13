@@ -44,7 +44,7 @@ Page({
     });
   },
 
-  ready: function ({ detail: view }) {
+  ready({ detail: view }) {
     this.view = view;
     wx.hideLoading();
     this.setData({
@@ -52,7 +52,7 @@ Page({
     });
   },
 
-  sceneStart: function () {
+  sceneStart() {
     this.stopAllAnim();
     this.setData({
       scanning: true,
@@ -66,20 +66,21 @@ Page({
         this.play(this.model, "loop", true);
       });
     }
+
     this.mask && this.mask.setEnableMask();
   },
 
-  downloadAssetProgress: function ({ detail }) {
+  downloadAssetProgress({ detail }) {
     this.setData({
       progress: detail * 100,
     });
   },
 
-  tracked: function () {
+  tracked() {
     this.startAnim();
   },
 
-  lostTrack: function () {
+  lostTrack() {
     this.stopAllAnim();
   },
 

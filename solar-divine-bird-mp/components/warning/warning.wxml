@@ -4,7 +4,9 @@
       <image src="./images/warning.png" />
       <text>警告</text>
     </view>
-    <view class="warning-content">您需要一个安全无阻的空间来感受此增强现实体验。请站在道路两旁的人行道上体验，时刻注意道路上往来的行人以及障碍物。</view>
+    <view class="warning-content"
+      >您需要一个安全无阻的空间来感受此增强现实体验。请站在道路两旁的人行道上体验，时刻注意道路上往来的行人以及障碍物。</view
+    >
   </view>
   <view class="close" bind:tap="closeWarning">
     <image src="/asset/button.png" />

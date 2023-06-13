@@ -13,7 +13,7 @@ Component({
     rotateLeft: "",
   },
   observers: {
-    progress: function () {
+    progress() {
       const progress = parseInt(this.properties.progress);
       const rotateRight = `transform: rotate(${
         progress > 50 ? 180 : (progress / 50) * 180

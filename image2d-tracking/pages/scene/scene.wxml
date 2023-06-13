@@ -1,19 +1,24 @@
 <view wx:if="{{showScene}}">
-    <kivicube-scene
-        wx:if="{{showScene}}"
-        class="kivicube"
-        scene-id="CxTr7V05XNRd6118cqz8yhBeJTXZXNue"
-        bindready="ready"
-        bindsceneStart="sceneStart"
-        binddownloadAssetProgress="downloadAssetProgress"
-        bindtracked="tracked"
-        bindlostTrack="lostTrack"
-        hideScan
-        hideLoading
-        hideDownload
-        hideTakePhoto
-    />
-    <scanning class="scan" wx:if="{{scanning}}"></scanning>
-    <loading class="loading" wx:if="{{loading}}" progress="{{progress}}"></loading>
-    <image class="photo" wx:if="{{photoing}}" bindtap="takePhoto" src="/assets/take-photo.png"></image>
+  <kivicube-scene
+    wx:if="{{showScene}}"
+    class="kivicube"
+    scene-id="CxTr7V05XNRd6118cqz8yhBeJTXZXNue"
+    bindready="ready"
+    bindsceneStart="sceneStart"
+    binddownloadAssetProgress="downloadAssetProgress"
+    bindtracked="tracked"
+    bindlostTrack="lostTrack"
+    hideScan
+    hideLoading
+    hideDownload
+    hideTakePhoto
+  />
+  <scanning class="scan" wx:if="{{scanning}}"></scanning>
+  <loading class="loading" wx:if="{{loading}}" progress="{{progress}}"></loading>
+  <image
+    class="photo"
+    wx:if="{{photoing}}"
+    bindtap="takePhoto"
+    src="/assets/take-photo.png"
+  ></image>
 </view>

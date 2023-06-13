@@ -1,9 +1,3 @@
-// 当分包使用此插件时，必须在使用组件前，调用此方法，设置分包路径。
-// 插件版本>=1.5.5支持
-
-const { setPackageRootPath } = requirePlugin("kivicube");
-setPackageRootPath("Kivicube");
-
 Page({
   data: {
     //是否显示loading页面，在进入页面时显示，在kivicube-scene场景加载完成后（loadSceneEnd）关闭

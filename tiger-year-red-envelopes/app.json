@@ -1,16 +1,12 @@
 {
-  "pages": [
-    "pages/index/index"
-  ],
+  "pages": ["pages/index/index"],
   "subpackages": [
     {
       "root": "Kivicube",
-      "pages": [
-        "pages/exprience/exprience"
-      ],
+      "pages": ["pages/exprience/exprience"],
       "plugins": {
         "kivicube": {
-          "version": "1.6.5",
+          "version": "2.0.0",
           "provider": "wx3bbab3920eabccb2"
         }
       }
@@ -19,9 +15,7 @@
   "preloadRule": {
     "pages/index/index": {
       "network": "wifi",
-      "packages": [
-        "Kivicube"
-      ]
+      "packages": ["Kivicube"]
     }
   },
   "sitemapLocation": "sitemap.json",

@@ -1,1 +1,7 @@
-<image src="./images/back.png" class="back" mode="heightFix" style="height:{{menuButtonHeight}}; top:{{capsuleTop}}; " bindtap="goBack"></image>
+<image
+  src="./images/back.png"
+  class="back"
+  mode="heightFix"
+  style="height:{{menuButtonHeight}}; top:{{capsuleTop}}; "
+  bindtap="goBack"
+></image>

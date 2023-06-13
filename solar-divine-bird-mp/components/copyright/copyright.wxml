@@ -1,7 +1,13 @@
 <view class="copyright-container" style="{{onPageLeft?'left: 6.67vw;':'right: 6.67vw;'}}">
-  <view class="copyright-detail" animation="{{animationData}}" style="{{onPageLeft?'left: 4.265vw;':'right: 4.265vw;'}}">
+  <view
+    class="copyright-detail"
+    animation="{{animationData}}"
+    style="{{onPageLeft?'left: 4.265vw;':'right: 4.265vw;'}}"
+  >
     <view class="copyright-title">版权声明</view>
-    <view class="copyright-content">该作品“太阳”（The Sun），其版权属于原创作者Key Detail所有。</view>
+    <view class="copyright-content"
+      >该作品“太阳”（The Sun），其版权属于原创作者Key Detail所有。</view
+    >
   </view>
   <view class="copyright-icon-container" bind:tap="onIconClicked">
     <image src="./images/copyright.png" mode="widthFix" class="copyright-image" />
