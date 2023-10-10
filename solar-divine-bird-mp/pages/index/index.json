@@ -2,6 +2,7 @@
   "disableScroll": true,
   "navigationStyle": "custom",
   "usingComponents": {
+    "private-modal": "../../components/private-modal/private-modal",
     "copyright": "/components/copyright/copyright"
   }
 }

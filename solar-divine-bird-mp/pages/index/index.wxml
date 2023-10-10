@@ -47,3 +47,4 @@
     <view class="underline"></view>
   </view>
 </view>
+<private-modal></private-modal>

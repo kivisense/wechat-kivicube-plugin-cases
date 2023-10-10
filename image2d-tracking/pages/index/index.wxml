@@ -13,3 +13,4 @@
   </view>
   <image src="../../assets/home/shadow.png" class="shadow"></image>
 </view>
+<private-modal></private-modal>
