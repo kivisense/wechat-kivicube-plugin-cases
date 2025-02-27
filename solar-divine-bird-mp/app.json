@@ -6,7 +6,7 @@
       "pages": ["pages/offline/offline", "pages/online/online"],
       "plugins": {
         "kivicube": {
-          "version": "2.0.0",
+          "version": "2.16.2",
           "provider": "wx3bbab3920eabccb2"
         }
       }
