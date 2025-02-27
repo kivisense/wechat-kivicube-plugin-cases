@@ -66,12 +66,12 @@ Page({
   //kivicube-scene组件的bindready事件绑定的函数，通过这个函数获取并保存场景的信息
   ready({ detail: view }) {
     this.view = view;
-    //跳过云识别
-    this.view.skipCloudar();
   },
 
   //场景加载完成后才关闭loading页面
   loadSceneEnd() {
+    //跳过云识别
+    this.view.skipCloudar();
     this.setData({
       showCustomDownload: false,
     });
