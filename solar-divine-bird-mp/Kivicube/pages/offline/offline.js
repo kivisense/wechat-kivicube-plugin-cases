@@ -63,9 +63,9 @@ Page({
     this.view = view;
   },
 
-  downloadProgress({ detail: progress }) {
+  downloadProgress({ detail }) {
     this.setData({
-      progress: parseInt(progress * 100),
+      progress: parseInt(detail.progress * 100),
     });
   },
 

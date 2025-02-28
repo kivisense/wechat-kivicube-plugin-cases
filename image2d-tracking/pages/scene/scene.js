@@ -72,7 +72,7 @@ Page({
 
   downloadAssetProgress({ detail }) {
     this.setData({
-      progress: detail * 100,
+      progress: detail.progress * 100,
     });
   },
 

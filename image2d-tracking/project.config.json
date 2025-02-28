@@ -53,7 +53,7 @@
     "condition": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.4",
+  "libVersion": "3.7.9",
   "appid": "wx03800a762308862c",
   "projectname": "image2d-tracking",
   "condition": {},
