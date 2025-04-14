@@ -3,12 +3,12 @@
     <progress-bar class="progress-bar" style="mix-blend-mode: lighten;" progress="{{percent}}"></progress-bar>
     <view class="progress-bar">
       <view class="progress" style="transform: translate({{posX}}vw, {{posY}}vw)">
-        <image class="box-image" src="../../assets/progress.png"></image>
+        <image class="box-image" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/progress.png"></image>
         <text class="progress-text">{{percent}}%</text>
       </view>
-      <image class="loading-image" src="/assets/loading.png"></image>
+      <image class="loading-image" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/loading.png"></image>
     </view>
-    <image class="box-image" src="/assets/loading_bg.png"></image>
+    <image class="box-image" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/loading_bg.png"></image>
     <view class="text">Loading...</view>
   </view>
 </view>

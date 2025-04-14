@@ -22,3 +22,5 @@ pnpm-debug.log*
 *.sw?
 
 project.private.config.json
+assets/package.json
+assets/package-lock.json

@@ -19,6 +19,6 @@
     class="photo"
     wx:if="{{photoing}}"
     bindtap="takePhoto"
-    src="/assets/take-photo.png"
+    src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/take-photo.png"
   ></image>
 </view>

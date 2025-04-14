@@ -11,7 +11,7 @@ Page({
   shareInfo: {
     path: "/pages/index/index",
     title: "AR元宇宙开启 伊弥戟王者出击",
-    imageUrl: "/assets/share.jpg",
+    imageUrl: "https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/share.jpg",
   },
   async start() {
     try {

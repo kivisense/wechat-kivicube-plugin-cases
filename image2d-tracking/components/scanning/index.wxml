@@ -3,8 +3,8 @@
     <view class="text">
       请对准海报识别
     </view>
-    <image class="focus-frame-image1" src="/assets/scan/focus-frame.png"></image>
-    <image class="focus-frame-image2" src="/assets/scan/id-picture.png"></image>
+    <image class="focus-frame-image1" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/scan/focus-frame.png"></image>
+    <image class="focus-frame-image2" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/scan/id-picture.png"></image>
   </view>
-  <image class="shadow" mode="widthFix" src="/assets/scan/bg.png"></image>
+  <image class="shadow" mode="widthFix" src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/scan/bg.png"></image>
 </view>

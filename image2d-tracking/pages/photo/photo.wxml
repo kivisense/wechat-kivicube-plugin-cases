@@ -5,11 +5,11 @@
     </view>
     <view class="btns">
       <view class="btn" bind:tap="retake">
-        <image src="/assets/photo/retake.png"></image>
+        <image src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/photo/retake.png"></image>
         <text>重拍</text>
       </view>
       <view class="btn" bind:tap="save">
-        <image src="/assets/photo/save.png"></image>
+        <image src="https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/photo/save.png"></image>
         <text>保存</text>
       </view>
     </view>

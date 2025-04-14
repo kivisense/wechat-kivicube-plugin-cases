@@ -8,7 +8,7 @@ Page({
   shareInfo: {
     path: "/pages/index/index",
     title: "AR元宇宙开启 伊弥戟王者出击",
-    imageUrl: "/assets/share.jpg",
+    imageUrl: "https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/share.jpg",
   },
   async onLoad({ photo: photoUrl }) {
     const menu = wx.getMenuButtonBoundingClientRect();
@@ -40,7 +40,7 @@ Page({
     const frameImg = canvas.createImage();
     await new Promise((resolve) => {
       frameImg.onload = resolve;
-      frameImg.src = "../../assets/photo/poster-frame.png";
+      frameImg.src = "https://meta.kivisense.com/wechat-kivicube-plugin-cases/image2d-tracking/photo/poster-frame.png";
     });
 
     // 照片image
